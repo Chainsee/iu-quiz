@@ -2,10 +2,45 @@ $yellow-color: #F6FF63;
 $purple-color: #6C63FF;
 $grey-color: #CCCCCC;
 $black-color: #000000;
+$green-color: #2FAB73;
 
 .panel{
   display: flex;
   justify-content: center;
+}
+
+.panelCheckMark{
+  display: flex;
+  justify-content: center;
+}
+
+.rightAnswer{
+  background-color: $green-color;
+  margin: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  }
+
+.checkMark{
+  margin: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: $grey-color;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.check{
+  margin-top:0.2rem;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightAnswer{
+  background-color: $green-color;
 }
 
 .logo{
@@ -43,7 +78,6 @@ $black-color: #000000;
 }
 
 .frage{
-  display: block;
   margin-left: auto;
   margin-right: auto;
   padding: 4rem;

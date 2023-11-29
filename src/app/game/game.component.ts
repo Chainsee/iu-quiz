@@ -9,6 +9,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './game.component.scss',
 })
 export class GameComponent {
+
+  isRightAnswer: boolean = false;
+  notAnswered: boolean = true;
+
   fragen: frage[] = [
     {frage: "Frage1", antwort: ["Antwort1", "Antwort2", "Antwort3", "Antwort4"], korrekteAntwort: 1, kategorie: "Test"},
     {frage: "Frage2", antwort: ["Antwort1", "Antwort2", "Antwort3", "Antwort4"], korrekteAntwort: 2},
