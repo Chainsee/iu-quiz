@@ -1,0 +1,36 @@
+.panel{
+  display: flex;
+  justify-content: center;
+}
+
+.frage{
+  padding: 4rem;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  background-color: #1e90ff;
+  border-radius: 30px;
+}
+
+.antwort {
+  padding: 2rem;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  background-color: #1e90ff;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
