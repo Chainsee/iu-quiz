@@ -3,6 +3,7 @@ $purple-color: #6C63FF;
 $grey-color: #CCCCCC;
 $black-color: #000000;
 $green-color: #2FAB73;
+$red-color: #bc0c0cc5;
 
 .panel{
   display: flex;
@@ -16,6 +17,15 @@ $green-color: #2FAB73;
 
 .rightAnswer{
   background-color: $green-color;
+  margin: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  }
+
+.wrongAnswer{
+  background-color: $red-color;
   margin: 1rem;
   width: 2rem;
   height: 2rem;
@@ -39,8 +49,13 @@ $green-color: #2FAB73;
   justify-content: center;
 }
 
-.rightAnswer{
-  background-color: $green-color;
+.cross{
+  margin-top:0.3rem;
+  font-weight: bold;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .logo{

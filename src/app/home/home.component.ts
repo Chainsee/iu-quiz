@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-
+  user:string = "Test";
 }
