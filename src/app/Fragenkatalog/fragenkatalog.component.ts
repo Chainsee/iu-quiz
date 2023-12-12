@@ -9,6 +9,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './fragenkatalog.component.scss'
 })
 export class FragenkatalogComponent {
+  frage1:Frage = {
+    frage: "Was ist die Hauptstadt von Deutschland?",
+    antworten: ['Berlin','Hamburg','München','Köln'],
+    korrekte_antwort: 'Berlin'
+
+  }
+
   frageAnzeigen(frage:Frage):void {
     var fragenContainer = document.getElementById("quiz-container");
     var frageElement = document.createElement("div");
