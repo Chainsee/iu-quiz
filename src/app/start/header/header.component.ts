@@ -10,5 +10,4 @@ import { RouterLink, RouterLinkActive } from '@angular/router'; //Page not found
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
 }
