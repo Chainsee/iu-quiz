@@ -8,7 +8,13 @@
     <div class="description">
       Ob alleine, oder im Duell mit anderen Studente
     </div>
-    <button class="button" onclick=login()>Loslegen</button>
+
+    <button class="button">
+      <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Loslegen</a>  <!--mit Login verbinden-->
+    </button>
+
+    <!--  <button class="button" onclick=login()>Loslegen</button>  -->  <!-- ***login()-Funktion ???*** -->
+
   </div>
   <div class="image-box">
     <img class="image" src="./assets/images/undraw_learning_sketching.png" />
@@ -55,7 +61,11 @@
   <div class="text3">
     Registriere dich jetzt und lerne mit IU-Quiz
   </div>
-  <button class="button">Jetzt Loslegen</button>
+
+  <button class="button">
+    <a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Jetzt Loslegen</a>
+  </button>                   <!-- Register verbinden -->
+  
 </div>
 <br>
 <br>
