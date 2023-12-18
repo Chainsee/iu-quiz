@@ -1,3 +1,10 @@
-<div class="panel"><div class="willkommen">Willkommen {{user}}!</div></div>
+<div class="panel">
+  <div class="willkommen">Willkommen {{ user }}!</div>
+</div>
 <div class="dashboard"></div>
-{{frageAnzeigen(frage1)}}
+<div class="panel" *ngFor="let frage of frage1">
+  <div>Frage: {{ frage.frage }}</div>
+  <div *ngFor="let antwort of frage.antworten">Antwort: {{ antwort }}</div>
+  <div>Korrekte Antwort: {{ frage.korrekte_antwort }}</div>
+  <br />
+</div>
