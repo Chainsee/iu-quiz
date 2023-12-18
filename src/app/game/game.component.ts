@@ -10,12 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class GameComponent {
   isRightAnswer: boolean[] = [
-    false,
-    false,
     true,
-    false,
     true,
-    false,
+    true,
+    true,
+    true,
+    true,
     true,
     false,
     true,

@@ -36,4 +36,5 @@ class Frage {
  frage?:string;
  antworten?:string[];
  korrekte_antwort?:string;
+
 }
