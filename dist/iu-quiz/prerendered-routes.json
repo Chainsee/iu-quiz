@@ -1,7 +1,10 @@
 {
   "routes": [
+    "/fragekatalog",
     "/game",
     "/home",
+    "/login",
+    "/register",
     "/start"
   ]
 }

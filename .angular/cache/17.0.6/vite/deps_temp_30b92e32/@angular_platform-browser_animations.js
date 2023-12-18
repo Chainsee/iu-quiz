@@ -1,17 +1,10 @@
 import {
   BrowserModule,
   DomRendererFactory2
-<<<<<<< HEAD:.angular/cache/17.0.6/vite/deps_temp_b42b29e6/@angular_platform-browser_animations.js
-} from "./chunk-NUIFYEZL.js";
-import {
-  DOCUMENT
-} from "./chunk-O6BBRG7T.js";
-=======
 } from "./chunk-ODNNOFYN.js";
 import {
   DOCUMENT
 } from "./chunk-GG5BJ3P3.js";
->>>>>>> 99be88c6a11419ddbf4497b0080987670afbf87d:.angular/cache/17.0.6/vite/deps/@angular_platform-browser_animations.js
 import {
   ANIMATION_MODULE_TYPE,
   ApplicationRef,
@@ -28,11 +21,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-<<<<<<< HEAD:.angular/cache/17.0.6/vite/deps_temp_b42b29e6/@angular_platform-browser_animations.js
-} from "./chunk-Z2YNC7HK.js";
-=======
 } from "./chunk-GWLPIXA7.js";
->>>>>>> 99be88c6a11419ddbf4497b0080987670afbf87d:.angular/cache/17.0.6/vite/deps/@angular_platform-browser_animations.js
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AUTO_STYLE = "*";
