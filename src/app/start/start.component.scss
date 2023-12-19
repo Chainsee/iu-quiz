@@ -29,19 +29,21 @@ $green-color: #2FAB73;
 .headline {
   padding-left: 2rem;
   padding-top: 4rem;
-    font-size: 2rem;
-    font-weight: 1000;
-    font-family: 'Roboto', sans-serif;
-    color: $black-color;
+  font-size: 2rem;
+  font-weight: 1000;
+  font-family: 'Roboto', sans-serif;
+  color: $black-color;
+  line-height: normal;
 }
 
 .headline2 {
   padding-left: 2rem;
   padding-top: 4rem;
-    font-size: 1.5rem;
-    font-weight: 800;
-    font-family: 'Roboto', sans-serif;
-    color: $black-color;
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: 'Roboto', sans-serif;
+  color: $black-color;
+  line-height: normal;
 }
 
 ul {
