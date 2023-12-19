@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-fragenkatalog',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './fragenkatalog.component.html',
   styleUrl: './fragenkatalog.component.scss'
 })
@@ -30,7 +27,7 @@ export class FragenkatalogComponent {
     // });
     var trennlinie = document.createElement("hr");
     fragenContainer?.appendChild(trennlinie);
-} 
+}
 
 }
 
