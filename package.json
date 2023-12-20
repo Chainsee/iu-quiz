@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start-server\" \"npm run start-app\"",
+    "start-server": "cd server && node index.mjs",
+    "start-app": "cd app && ng serve",
+    "install": "concurrently \"npm run install-server\" \"npm run install-app\"",
+    "install-server": "cd server && npm install",
+    "install-app": "cd app && npm install"
+  }
+}
