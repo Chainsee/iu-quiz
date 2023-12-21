@@ -11,7 +11,7 @@ export class AppComponent {
   message: any;
   async ngOnInit() {
     let posts = async () => {
-      let response = await fetch('http://localhost:5050/posts/latest');
+      let response = await fetch('http://localhost:5050/posts/getAll');
       let results = await response.json();
       return results;
     };
