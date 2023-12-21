@@ -1,0 +1,80 @@
+$black-color: #000000;
+$purple-color: #6C63FF;
+$white-color: #FFFFFF;
+$green-color: #2FAB73;
+
+.logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  height: 10%;
+  align-items: center;
+}
+.panel1{
+  display: flex;
+  justify-content: center;
+}
+.headline {
+  padding-left: 2rem;
+  padding-top: 4rem;
+    font-size: 2rem;
+    font-weight: 1000;
+    font-family: 'Roboto', sans-serif;
+    color: $black-color;
+}
+.text{
+  padding-top: 4rem;
+}
+.SinglePlayer{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  height: 30%;
+  align-items: center;
+  }
+  .MultiPlayer{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    height: 30%;
+    align-items: center;
+  }
+
+.button{
+  padding: 2rem;
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  width: 50%;
+  height: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background-color: $purple-color;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.panel{
+  display: flex;
+  justify-content: center;
+}
+.Einstellungen{
+
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 20%;
+height: 30%;
+align-items: end;
+justify-content: center;
+}
+.SinglePlayerBild{
+  max-width:3 rem ;
+  max-height:3rem ;
+}
