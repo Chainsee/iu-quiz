@@ -62,14 +62,14 @@ $red-color: #bc0c0cc5;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
-  height: 30%;
+  width: 10%;
+  height: 10%;
   align-items: center;
 }
 
 .kategorie{
   position: relative;
-  top: 3.1rem;
+  top: 4.2rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -77,14 +77,14 @@ $red-color: #bc0c0cc5;
   display: flex;
   align-items: center;
   width: 20%;
-  height: 10%;
+  height: 5%;
   background-color: $yellow-color;
   border-radius: 0 0 30px 30px;
 }
 
 .kategorie_text{
   font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font-size: 1  rem;
   font-weight: bold;
   color: $black-color;
   display: block;
@@ -95,7 +95,7 @@ $red-color: #bc0c0cc5;
 .frage{
   margin-left: auto;
   margin-right: auto;
-  padding: 4rem;
+  padding: 0.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,4 +125,15 @@ $red-color: #bc0c0cc5;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+
+mat-progress-bar{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 45%;
 }

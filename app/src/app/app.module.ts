@@ -10,12 +10,18 @@ import { FragenkatalogComponent } from './fragenkatalog/fragenkatalog.component'
 import { GameComponent } from './game/game.component';
 import { HeaderComponent } from './start/header/header.component';
 import { FooterComponent } from './start/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatButtonModule
 
   ],
   declarations: [
