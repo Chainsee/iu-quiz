@@ -1,7 +1,7 @@
-<div>
-  <p>Wähle deine Kategorie</p>
-  <select [(ngModel)] = "selectedCategory" name = "selectedCategory">
+<div class="panel">
+  <p class="text">Wähle deine Kategorie</p>
+  <select class="select" [(ngModel)] = "selectedCategory" name = "selectedCategory">
     <option *ngFor="let post of categories" [value]="post.kategorie">{{post.kategorie}}</option>
   </select>
-  <button (click)="getCategory()">Kategorie wählen</button>
+  <button class="button" (click)="getCategory()">Kategorie wählen</button>
 </div>
