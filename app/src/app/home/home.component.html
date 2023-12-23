@@ -1,10 +1,18 @@
-<div class="panel">
-  <div class="willkommen">Willkommen {{ user }}!</div>
+<img class="logo" src="../../assets/images/IU-Quiz_Logo.png" alt="Logo" />
+
+<div class="panel1">
+<div class="text">
+    <div class="headline">
+      Spielmodus wählen: <br />
+    </div>
+</div>    
 </div>
-<div class="dashboard"></div>
-<div class="panel" *ngFor="let frage of frage1">
-  <div>Frage: {{ frage.frage }}</div>
-  <div *ngFor="let antwort of frage.antworten">Antwort: {{ antwort }}</div>
-  <div>Korrekte Antwort: {{ frage.korrekte_antwort }}</div>
-  <br />
+<div class="panel">
+<button class= "button" onclick = "window.location.href='http://localhost:4200/game'">Single-Player Modus
+<img class="SinglePlayerBild" src="../../assets/images/SinglePlayer.png" alt="SinglePlayerBild" />
+
+</button>
+<button class="button" onclick = "window.location.href='http://localhost:4200/game'">Multi-Player Modus
+  <img class="SinglePlayerBild" src="../../assets/images/undraw_Engineering_team_a7n2.png" alt="SinglePlayerBild" />
+    </button>
 </div>
