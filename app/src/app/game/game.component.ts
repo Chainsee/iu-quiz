@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { ProgressBar } from '../../models/progressBar.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
+  styleUrl: './game.component.scss',
 })
 export class GameComponent {
   i: number = 0;
@@ -15,9 +15,12 @@ export class GameComponent {
   add_step = 10;
   progress = 0;
 
+  constructor(private route: ActivatedRoute) { }
+
   async ngOnInit() {
+    let category = this.route.snapshot.paramMap.get('category');
     let posts = async () => {
-      let response = await fetch('http://localhost:5050/posts/getAll');
+      let response = await fetch('http://localhost:5050/posts/getKat?kat=' + category);
       let results = await response.json();
       return results;
     };

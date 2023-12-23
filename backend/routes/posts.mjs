@@ -14,17 +14,24 @@ router.get("/", async (req, res) => {
   console.log("Daten gelesen");
 });
 
-// Fetches the latest posts
 router.get("/getAll", async (req, res) => {
   let collection = await db.collection("Fragen");
   let results = await collection.aggregate([
     {"$project": {"frage": 1, "antworten": 1 , "korrekteAntwort": 1, "kategorie": 1}}
   ]).toArray();
   res.send(results).status(200);
-  console.log("Letzte Daten gelesen: ");
+  console.log("Alle Daten gelesen: ");
 });
 
-// Fetches the latest posts
+router.get("/getKategorien", async (req, res) => {
+  let collection = await db.collection("Fragen");
+  let results = await collection.aggregate([
+    {"$project": {"kategorie": 1}}
+  ]).toArray();
+  res.send(results).status(200);
+  console.log("Kategorien gelesen: ");
+});
+
 router.get("/getKat", async (req, res) => {
   let collection = await db.collection("Fragen");
   let kategorie = req.query.kat;
@@ -33,10 +40,9 @@ router.get("/getKat", async (req, res) => {
     {"$project": {"frage": 1, "antworten": 1 , "korrekteAntwort": 1, "kategorie": 1}}
   ]).toArray();
   res.send(results).status(200);
-  console.log("Letzte Daten gelesen: ");
+  console.log("Ausgewählte Kategorie gelesen: ");
 });
 
-// Get a single post
 router.get("/:id", async (req, res) => {
   let collection = await db.collection("posts");
   let query = {_id: ObjectId(req.params.id)};
@@ -46,7 +52,6 @@ router.get("/:id", async (req, res) => {
   else res.send(result).status(200);
 });
 
-// Add a new document to the collection
 router.post("/", async (req, res) => {
   let collection = await db.collection("posts");
   let newDocument = req.body;
@@ -55,7 +60,6 @@ router.post("/", async (req, res) => {
   res.send(result).status(204);
 });
 
-// Update the post with a new comment
 router.patch("/comment/:id", async (req, res) => {
   const query = { _id: ObjectId(req.params.id) };
   const updates = {
@@ -68,7 +72,6 @@ router.patch("/comment/:id", async (req, res) => {
   res.send(result).status(200);
 });
 
-// Delete an entry
 router.delete("/:id", async (req, res) => {
   const query = { _id: ObjectId(req.params.id) };
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DBService } from '../services/db.service';
@@ -13,6 +14,7 @@ import { FooterComponent } from './start/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
+import { CategoryComponent } from './game/category/category.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressBarModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
 
   ],
   declarations: [
@@ -31,7 +34,8 @@ import { MatButtonModule } from '@angular/material/button';
     FooterComponent,
     HomeComponent,
     FragenkatalogComponent,
-    GameComponent
+    GameComponent,
+    CategoryComponent
   ],
   providers: [DBService],
   bootstrap: [AppComponent],
