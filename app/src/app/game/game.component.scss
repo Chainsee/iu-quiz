@@ -9,7 +9,7 @@ $var: 100vw;
 
 .gamePage{
   height: 100%;
-  width: $var;
+  width: calc($var/1);
   overflow: hidden;
 }
 
@@ -17,8 +17,8 @@ $var: 100vw;
   // display: block;
   margin-left: auto;
   margin-right: auto;
-  width: $var/15;
-  height: $var/30;
+  width: calc($var/15);
+  height: calc($var/30);
   align-items: center;
 }
 
@@ -26,11 +26,10 @@ $var: 100vw;
   display: flex;
   align-items: center;
   position: relative;
-  top: $var/33;
-  width: $var/2.5;
-  height: $var/50;
+  top: calc($var/33);
+  width: calc($var/2.5);
+  height: calc($var/50);
   z-index: 1;
-  // padding: $var/00;
   margin-left: auto;
   margin-right: auto;
   border-radius: 0 0 30px 30px;
@@ -39,8 +38,7 @@ $var: 100vw;
 
 .kategorie_text{
   font-family: 'Roboto', sans-serif;
-  font-size: $var/120;
-  // font-weight: bold;
+  font-size: calc($var/120);
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -55,11 +53,11 @@ $var: 100vw;
   margin-left: auto;
   margin-right: auto;
   z-index: 0;
-  top: $var/100;
-  width: $var/1.5;
-  height: $var/10;
+  top: calc($var/100);
+  width: calc($var/1.5);
+  height: calc($var/10);
   font-family: 'Roboto', sans-serif;
-  font-size: $var/70;
+  font-size: calc($var/70);
   color: white;
   font-weight: bold;
   border-radius: 30px;
@@ -73,33 +71,33 @@ $var: 100vw;
 
 .panelCheckMark{
   display: flex;
-  padding: $var/100;
+  padding: calc($var/100);
   justify-content: center;
   align-items: center;
 }
 
 .rightAnswer{
   background-color: $green-color;
-  margin: $var/100;
-  width: $var/50;
-  height: $var/50;
+  margin: calc($var/100);
+  width: calc($var/50);
+  height: calc($var/50);
   border-radius: 50%;
   cursor: pointer;
   }
 
 .wrongAnswer{
   background-color: $red-color;
-  margin: $var/100;
-  width: $var/50;
-  height: $var/50;
+  margin: calc($var/100);
+  width: calc($var/50);
+  height: calc($var/50);
   border-radius: 50%;
   cursor: pointer;
   }
 
 .checkMark{
-  margin: $var/100;
-  width: $var/50;
-  height: $var/50;
+  margin: calc($var/100);
+  width: calc($var/50);
+  height: calc($var/50);
   background-color: $grey-color;
   border-radius: 50%;
   cursor: pointer;
@@ -122,15 +120,15 @@ $var: 100vw;
 }
 
 .antwort {
-  padding: $var/50;
-  margin: $var/50;
+  padding: calc($var/50);
+  margin: calc($var/50);
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-  width: $var/3.3;
-  height: $var/20;
-  font-size: $var/100;
+  width: calc($var/3.3);
+  height: calc($var/20);
+  font-size: calc($var/100);
   font-weight: bold;
   color: $purple-color  ;
   background-color: $grey-color;

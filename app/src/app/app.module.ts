@@ -14,7 +14,9 @@ import { FooterComponent } from './start/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CategoryComponent } from './game/category/category.component';
+import { DialogComponent } from './game/dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -24,6 +26,7 @@ import { CategoryComponent } from './game/category/category.component';
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatButtonModule,
+    MatDialogModule,
     FormsModule
 
   ],
@@ -35,7 +38,8 @@ import { CategoryComponent } from './game/category/category.component';
     HomeComponent,
     FragenkatalogComponent,
     GameComponent,
-    CategoryComponent
+    CategoryComponent,
+    DialogComponent
   ],
   providers: [DBService],
   bootstrap: [AppComponent],
