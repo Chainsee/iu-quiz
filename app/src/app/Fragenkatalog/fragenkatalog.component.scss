@@ -1,0 +1,36 @@
+$black-color: #000000;
+$purple-color: #6c63ff;
+$white-color: #ffffff;
+$green-color: #2fab73;
+$var: 100vw;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+}
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc($var/80);
+  font-weight: 500;
+  text-shadow: 0 0 0.6rem rgba($black-color, 0.35);
+  font-family: "Roboto", sans-serif;
+  margin: calc($var/60);
+  margin-top: calc($var/20);
+}
+
+.buttonPanel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin-top: calc($var/60);
+  margin: calc($var/60);
+  font-weight: calc($var*5);
+  text-shadow: 0 0 0.6rem rgba($black-color, 0.35);
+  font-family: "Roboto", sans-serif;
+  font-size: calc($var/100);
+}

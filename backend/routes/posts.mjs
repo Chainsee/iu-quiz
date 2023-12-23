@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  let collection = await db.collection("posts");
+  let collection = await db.collection("Fragen");
   let results = await collection.find({})
     .limit(50)
     .toArray();
@@ -44,7 +44,7 @@ router.get("/getKat", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  let collection = await db.collection("posts");
+  let collection = await db.collection("Fragen");
   let query = {_id: ObjectId(req.params.id)};
   let result = await collection.findOne(query);
 
@@ -53,7 +53,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  let collection = await db.collection("posts");
+  let collection = await db.collection("Fragen");
   let newDocument = req.body;
   newDocument.date = new Date();
   let result = await collection.insertOne(newDocument);
@@ -66,7 +66,7 @@ router.patch("/comment/:id", async (req, res) => {
     $push: { comments: req.body }
   };
 
-  let collection = await db.collection("posts");
+  let collection = await db.collection("Fragen");
   let result = await collection.updateOne(query, updates);
 
   res.send(result).status(200);
@@ -75,7 +75,7 @@ router.patch("/comment/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   const query = { _id: ObjectId(req.params.id) };
 
-  const collection = db.collection("posts");
+  const collection = db.collection("Fragen");
   let result = await collection.deleteOne(query);
 
   res.send(result).status(200);

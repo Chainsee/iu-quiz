@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'game/:category', component: GameComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'fragekatalog', component: FragenkatalogComponent},
+  {path: 'fragenkatalog', component: FragenkatalogComponent},
   {path: 'auswahl', component: CategoryComponent}
 ];
 

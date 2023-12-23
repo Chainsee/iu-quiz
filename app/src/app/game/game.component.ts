@@ -19,7 +19,7 @@ export class GameComponent {
   add_step = 10;
   progress = 0;
 
-  constructor(private route: ActivatedRoute, private router:Router, private dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private dialog: MatDialog) { }
 
   async ngOnInit() {
     let category = this.route.snapshot.paramMap.get('category');

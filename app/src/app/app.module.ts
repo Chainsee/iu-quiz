@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DBService } from '../services/db.service';
@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CategoryComponent } from './game/category/category.component';
 import { DialogComponent } from './game/dialog/dialog.component';
+import { QuestionDialogComponent } from './fragenkatalog/question-dialog/question-dialog.component';
 
 @NgModule({
   imports: [
@@ -27,8 +28,8 @@ import { DialogComponent } from './game/dialog/dialog.component';
     MatProgressBarModule,
     MatButtonModule,
     MatDialogModule,
-    FormsModule
-
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { DialogComponent } from './game/dialog/dialog.component';
     FragenkatalogComponent,
     GameComponent,
     CategoryComponent,
-    DialogComponent
+    DialogComponent,
+    QuestionDialogComponent
   ],
   providers: [DBService],
   bootstrap: [AppComponent],
