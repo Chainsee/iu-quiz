@@ -1,11 +1,11 @@
-.panel{
+.panel {
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
 }
 
-.fragen{
+.fragen {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -19,14 +19,21 @@
 .input-group {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
+  margin: 5px;
 }
 
 .input-group label {
   margin-right: 10px;
+  width: 150px;
 }
 
-.form{
+.input-group input {
+  flex-grow: 1;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -35,7 +42,7 @@
   margin-right: auto;
 }
 
-.loeschen{
+.loeschen {
   border-radius: 50px;
   width: 10px;
   height: 10px;
