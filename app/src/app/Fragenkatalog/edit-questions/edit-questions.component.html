@@ -1,0 +1,76 @@
+<h1 class="header">{{ choosenCategory }}</h1>
+<div class="panel">
+  <div class="fragen" *ngFor="let item of message">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label>Frage:</label>
+      <input type="text" formControlName="frage" [value]="item.frage" />
+      <label>1. Antwort:</label>
+      <input
+        type="text"
+        formControlName="antwort1"
+        [value]="item.antworten.antwort1"
+      />
+      <label>2. Antwort:</label>
+      <input
+        type="text"
+        formControlName="antwort2"
+        [value]="item.antworten.antwort2"
+      />
+      <label>3. Antwort:</label>
+      <input
+        type="text"
+        formControlName="antwort3"
+        [value]="item.antworten.antwort3"
+      />
+      <label>4. Antwort:</label>
+      <input
+        type="text"
+        formControlName="antwort4"
+        [value]="item.antworten.antwort4"
+      />
+      <label>Korrekte Antwort:</label>
+      <input
+        type="text"
+        formControlName="korrekteAntwort"
+        [value]="item.korrekteAntwort"
+      />
+      <button type="submit" class="btn btn-primary">Ändern</button>
+    </form>
+    <button type="submit" class="btn btn-primary">Löschen</button>
+  </div>
+
+  <div class="fragen">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="input-group">
+        <label>Frage:</label>
+        <input type="text" formControlName="frage" />
+      </div>
+      <div class="input-group">
+        <label>1. Antwort:</label>
+        <input type="text" formControlName="antwort1" />
+      </div>
+      <div class="input-group">
+        <label>2. Antwort:</label>
+        <input type="text" formControlName="antwort2" />
+      </div>
+      <div class="input-group">
+        <label>3. Antwort:</label>
+        <input type="text" formControlName="antwort3" />
+      </div>
+      <div class="input-group">
+        <label>4. Antwort:</label>
+        <input type="text" formControlName="antwort4" />
+      </div>
+      <div class="input-group">
+        <label>Korrekte Antwort:</label>
+        <input type="text" formControlName="korrekteAntwort" />
+      </div>
+      <div class="input-group">
+        <button type="submit" class="btn btn-primary">Speichern</button>
+        <button class="loeschen" (click)="loeschen()" class="btn btn-primary">
+          Löschen
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

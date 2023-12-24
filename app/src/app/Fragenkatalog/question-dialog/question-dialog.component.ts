@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-question-dialog',
   templateUrl: './question-dialog.component.html',
-  styleUrl: './question-dialog.component.scss'
+  styleUrl: './question-dialog.component.scss',
 })
 export class QuestionDialogComponent {
   form: FormGroup;
@@ -14,17 +14,18 @@ export class QuestionDialogComponent {
   constructor(
     private dialogRef: MatDialogRef<QuestionDialogComponent>,
     private router: Router,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {
     this.form = this.formBuilder.group({
-      categoryName: '',});
+      categoryName: '',
+    });
   }
 
-  save(){
+  save() {
     if (this.form.get('categoryName')) {
       const categoryName = this.form.get('categoryName')?.value;
-      let posts = async () => {
-        let response = await fetch('http://localhost:5050/posts/getKat?kat=' + category);
+      this.router.navigate(['/fragenbearbeiten', categoryName]);
+      this.dialogRef.close();
     }
   }
 

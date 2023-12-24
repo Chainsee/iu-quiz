@@ -5,10 +5,10 @@ import { QuestionDialogComponent } from './question-dialog/question-dialog.compo
 
 @Component({
   selector: 'app-fragenkatalog',
-  templateUrl: './fragenkatalog.component.html',
-  styleUrl: './fragenkatalog.component.scss'
+  templateUrl: './questions.component.html',
+  styleUrl: './questions.component.scss'
 })
-export class FragenkatalogComponent {
+export class QuestionsComponent {
   constructor(private dialog: MatDialog) { }
   addCategory() {
     const dialogRef = this.dialog.open(QuestionDialogComponent, {

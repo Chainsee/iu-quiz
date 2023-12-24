@@ -6,8 +6,9 @@ import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
 import { RegisterComponent } from './start/register/register.component';
 import { LoginComponent } from './start/login/login.component';
-import { FragenkatalogComponent } from './fragenkatalog/fragenkatalog.component' ;
+import { QuestionsComponent } from './fragenkatalog/questions.component' ;
 import { CategoryComponent } from './game/category/category.component';
+import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-questions.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'game/:category', component: GameComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'fragenkatalog', component: FragenkatalogComponent},
+  {path: 'fragenkatalog', component: QuestionsComponent},
+  {path: 'fragenbearbeiten/:category', component: EditQuestionsComponent},
   {path: 'auswahl', component: CategoryComponent}
 ];
 

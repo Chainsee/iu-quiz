@@ -7,7 +7,7 @@ import { DBService } from '../services/db.service';
 import { AppRoutingModule } from './app.routes';
 import { StartComponent } from './start/start.component';
 import { HomeComponent } from './home/home.component';
-import { FragenkatalogComponent } from './fragenkatalog/fragenkatalog.component';
+import { QuestionsComponent } from './fragenkatalog/questions.component';
 import { GameComponent } from './game/game.component';
 import { HeaderComponent } from './start/header/header.component';
 import { FooterComponent } from './start/footer/footer.component';
@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CategoryComponent } from './game/category/category.component';
 import { DialogComponent } from './game/dialog/dialog.component';
 import { QuestionDialogComponent } from './fragenkatalog/question-dialog/question-dialog.component';
+import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-questions.component';
 
 @NgModule({
   imports: [
@@ -37,11 +38,12 @@ import { QuestionDialogComponent } from './fragenkatalog/question-dialog/questio
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    FragenkatalogComponent,
+    QuestionsComponent,
     GameComponent,
     CategoryComponent,
     DialogComponent,
-    QuestionDialogComponent
+    QuestionDialogComponent,
+    EditQuestionsComponent
   ],
   providers: [DBService],
   bootstrap: [AppComponent],
