@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-questions',
@@ -12,6 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class EditQuestionsComponent {
   message: any;
   choosenCategory: any;
+  formArray!: FormArray;
   form!: FormGroup;
   constructor(
     private route: ActivatedRoute,
@@ -25,29 +24,36 @@ export class EditQuestionsComponent {
         'http://localhost:5050/posts/getKat?kat=' + category
       );
       let results = await response.json();
+      console.log(results);
       return results;
     };
-    this.form = this.formBuilder.group({
-      frage: '',
-      antwort1: '',
-      antwort2: '',
-      antwort3: '',
-      antwort4: '',
-      korrekteAntwort: '',
-    });
-    this.choosenCategory = category;
     this.message = await posts();
+    this.choosenCategory = category;
+    this.formArray = this.formBuilder.array([]);
+    this.message.forEach((item:any) => {
+      const group = this.formBuilder.group({
+        frage: [item.frage],
+        antwort1: [item.antworten.antwort1],
+        antwort2: [item.antworten.antwort2],
+        antwort3: [item.antworten.antwort3],
+        antwort4: [item.antworten.antwort4],
+        korrekteAntwort: [item.korrekteAntwort],
+      });
+      this.formArray.push(group);
+
+      this.form = new FormGroup({
+        frage: new FormControl(''),
+        antwort1: new FormControl(''),
+        antwort2: new FormControl(''),
+        antwort3: new FormControl(''),
+        antwort4: new FormControl(''),
+        korrekteAntwort: new FormControl(''),
+      });
+    });
   }
 
-  fillForm(item: any): void {
-    this.form.patchValue({
-      frage: item.question,
-      antwort1: item.answer1,
-      antwort2: item.answer2,
-      antwort3: item.answer3,
-      antwort4: item.answer4,
-      korrekteAntwort: item.correctAnswer,
-    });
+  getFormGroup(index: number): FormGroup {
+    return this.formArray.controls[index] as FormGroup;
   }
 
   onSubmit(){

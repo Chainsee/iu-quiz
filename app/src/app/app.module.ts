@@ -19,6 +19,7 @@ import { CategoryComponent } from './game/category/category.component';
 import { DialogComponent } from './game/dialog/dialog.component';
 import { QuestionDialogComponent } from './fragenkatalog/question-dialog/question-dialog.component';
 import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-questions.component';
+import { CategoryDialogComponent } from './fragenkatalog/category-dialog/category-dialog.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,9 @@ import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-ques
     CategoryComponent,
     DialogComponent,
     QuestionDialogComponent,
-    EditQuestionsComponent
+    EditQuestionsComponent,
+    QuestionDialogComponent,
+    CategoryDialogComponent
   ],
   providers: [DBService],
   bootstrap: [AppComponent],
