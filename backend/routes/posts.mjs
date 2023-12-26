@@ -60,7 +60,7 @@ router.get("/:id", async (req, res) => {
   let query = { _id: ObjectId(req.params.id) };
   let result = await collection.findOne(query);
 
-  if (!result) res.send("Not found").status(404);
+  if (!result) res.send("Kein Eintrag gefunden").status(404);
   else res.send(result).status(200);
 });
 
@@ -74,18 +74,6 @@ router.post("/newQuestion", async (req, res) => {
   res.send(result).status(204);
 });
 
-router.patch("/comment/:id", async (req, res) => {
-  const query = { _id: ObjectId(req.params.id) };
-  const updates = {
-    $push: { comments: req.body },
-  };
-
-  let collection = await db.collection("Fragen");
-  let result = await collection.updateOne(query, updates);
-
-  res.send(result).status(200);
-});
-
 router.delete("/delete/:id", async (req, res) => {
   let collection = await db.collection("Fragen");
   let query;
@@ -93,7 +81,7 @@ router.delete("/delete/:id", async (req, res) => {
     query = { _id: ObjectId(req.params.id) };
   } catch (error) {
     console.log(error);
-    return res.status(500).send({ error: 'Invalid ID format' });
+    return res.status(500).send({ error: 'Fehlerhafte ID' });
   }
   console.log("Frage gelöscht ");
   let result;
@@ -101,9 +89,32 @@ router.delete("/delete/:id", async (req, res) => {
     result = await collection.deleteOne(query);
   } catch (error) {
     console.log(error);
-    return res.status(500).send({ error: 'Error deleting question' });
+    return res.status(500).send({ error: 'Fehler beim löschen' });
   }
   res.send(result).status(200);
+});
+
+router.put("/update/:id", async (req, res) => {
+  let collection = await db.collection("Fragen");
+  let filter = { _id: ObjectId(req.params.id) };
+
+  let update = {
+    $set: {
+      frage: req.body.frage,
+      antworten: req.body.antworten,
+      korrekteAntwort: req.body.korrekteAntwort,
+      kategorie: req.body.kategorie
+    }
+  };
+
+  try {
+    let result = await collection.updateOne(filter, update);
+    console.log("Frage geändert: " + req.body.frage);
+    res.send(result).status(200);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: 'Fehler beim updaten' });
+  }
 });
 
 export default router;

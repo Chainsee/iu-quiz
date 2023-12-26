@@ -37,10 +37,12 @@ export class EditQuestionsComponent {
     this.message.forEach((item: any) => {
       const group = this.formBuilder.group({
         frage: [item.frage],
-        antwort1: [item.antworten.antwort1],
-        antwort2: [item.antworten.antwort2],
-        antwort3: [item.antworten.antwort3],
-        antwort4: [item.antworten.antwort4],
+        antworten: {
+          antwort1: [item.antworten.antwort1],
+          antwort2: [item.antworten.antwort2],
+          antwort3: [item.antworten.antwort3],
+          antwort4: [item.antworten.antwort4],
+        },
         korrekteAntwort: [item.korrekteAntwort],
         kategorie: [item.kategorie],
       });
@@ -73,7 +75,14 @@ export class EditQuestionsComponent {
     window.location.reload();
   }
 
-  onSubmit() {}
+  async update(form: FormGroup, index: number) {
+    const item = form.value;
+    let _id = this.message[index]._id;
+    const response = await this.http
+      .put(`http://localhost:5050/posts/update/${_id}`, item)
+      .toPromise();
+    window.location.reload();
+  }
 
   async loeschen(index: number) {
     let item = this.message[index];

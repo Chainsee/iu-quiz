@@ -47,26 +47,32 @@
   <h2 class="header">Fragen bearbeiten:</h2>
   <div class="fragen-container">
     <div class="fragen" *ngFor="let item of formArray.controls; let i = index">
-      <form class="form" [formGroup]="getFormGroup(i)" (ngSubmit)="onSubmit()">
+      <form
+        class="form"
+        [formGroup]="getFormGroup(i)"
+        (ngSubmit)="update(getFormGroup(i), i)"
+      >
         <div class="input-group">
           <label>Frage:</label>
           <input type="text" formControlName="frage" />
         </div>
-        <div class="input-group">
-          <label>1. Antwort:</label>
-          <input type="text" formControlName="antwort1" />
-        </div>
-        <div class="input-group">
-          <label>2. Antwort:</label>
-          <input type="text" formControlName="antwort2" />
-        </div>
-        <div class="input-group">
-          <label>3. Antwort:</label>
-          <input type="text" formControlName="antwort3" />
-        </div>
-        <div class="input-group">
-          <label>4. Antwort:</label>
-          <input type="text" formControlName="antwort4" />
+        <div formGroupName="antworten">
+          <div class="input-group">
+            <label>1. Antwort:</label>
+            <input type="text" formControlName="antwort1" />
+          </div>
+          <div class="input-group">
+            <label>2. Antwort:</label>
+            <input type="text" formControlName="antwort2" />
+          </div>
+          <div class="input-group">
+            <label>3. Antwort:</label>
+            <input type="text" formControlName="antwort3" />
+          </div>
+          <div class="input-group">
+            <label>4. Antwort:</label>
+            <input type="text" formControlName="antwort4" />
+          </div>
         </div>
         <div class="input-group">
           <label>Richtige Antwort Nr:</label>
@@ -74,7 +80,11 @@
         </div>
         <div class="button-group">
           <button type="submit" class="btn btn-primary">Speichern</button>
-          <button class="loeschen" (click)="loeschen(i)" class="btn btn-primary">
+          <button
+            class="loeschen"
+            (click)="loeschen(i)"
+            class="btn btn-primary"
+          >
             Löschen
           </button>
         </div>
