@@ -1,5 +1,10 @@
 <img class="logo" src="../../assets/images/IU-Quiz_Logo.png" alt="Logo" />
 
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item>Benutzerprofil</button>
+  <button mat-menu-item>Einstellungen</button>
+</mat-menu>
+<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
 <div class="panel1">
 <div class="text">
     <div class="headline">
