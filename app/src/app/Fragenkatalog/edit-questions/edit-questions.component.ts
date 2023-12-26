@@ -75,7 +75,7 @@ export class EditQuestionsComponent {
         .toPromise();
       window.location.reload();
     } else {
-      alert('Bitte alle Felder ausfüllen!');
+      alert('Bitte alle Felder korrekt ausfüllen!');
     }
   }
 
@@ -88,7 +88,7 @@ export class EditQuestionsComponent {
         .toPromise();
       window.location.reload();
     } else {
-      alert('Bitte alle Felder ausfüllen!');
+      alert('Bitte alle Felder korrekt ausfüllen!');
     }
   }
 
@@ -101,7 +101,7 @@ export class EditQuestionsComponent {
         .toPromise();
       window.location.reload();
     } else {
-      alert('Bitte alle Felder ausfüllen!');
+      alert('Bitte alle Felder korrekt ausfüllen!');
     }
   }
 
@@ -112,7 +112,9 @@ export class EditQuestionsComponent {
     item.antworten.antwort2 != '' &&
     item.antworten.antwort3 != '' &&
     item.antworten.antwort4 != '' &&
-    item.korrekteAntwort != ''
+    item.korrekteAntwort === 'number' &&
+    item.korrekteAntwort >= 1 &&
+    item.korrekteAntwort <= 4
       ? (rueckgabe = true)
       : (rueckgabe = false);
     return rueckgabe;
