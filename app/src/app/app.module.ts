@@ -19,6 +19,7 @@ import { DialogComponent } from './game/dialog/dialog.component';
 import { QuestionDialogComponent } from './fragenkatalog/question-dialog/question-dialog.component';
 import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-questions.component';
 import { CategoryDialogComponent } from './fragenkatalog/category-dialog/category-dialog.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { CategoryDialogComponent } from './fragenkatalog/category-dialog/categor
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    MatMenuModule
   ],
   declarations: [
     AppComponent,
