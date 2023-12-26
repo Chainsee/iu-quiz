@@ -28,10 +28,10 @@
       <tr *ngFor="let item of items">
         <td>{{ item.kategorie }}</td>
         <td>{{ item.frage }}</td>
-        <td>{{ item.antworten[0] }}</td>
-        <td>{{ item.antworten[1] }}</td>
-        <td>{{ item.antworten[2] }}</td>
-        <td>{{ item.antworten[3] }}</td>
+        <td>{{ item.antworten.antwort1 }}</td>
+        <td>{{ item.antworten.antwort2 }}</td>
+        <td>{{ item.antworten.antwort3 }}</td>
+        <td>{{ item.antworten.antwort4 }}</td>
         <td>{{ item.korrekteAntwort }}</td>
       </tr>
     </table>

@@ -20,6 +20,8 @@ import { QuestionDialogComponent } from './fragenkatalog/question-dialog/questio
 import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-questions.component';
 import { CategoryDialogComponent } from './fragenkatalog/category-dialog/category-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { LoginComponent } from './start/login/login.component';
+import { RegisterComponent } from './start/register/register.component';
 
 @NgModule({
   imports: [
@@ -47,7 +49,9 @@ import {MatMenuModule} from '@angular/material/menu';
     QuestionDialogComponent,
     EditQuestionsComponent,
     QuestionDialogComponent,
-    CategoryDialogComponent
+    CategoryDialogComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   bootstrap: [AppComponent],
 })

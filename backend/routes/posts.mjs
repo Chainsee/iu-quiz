@@ -1,8 +1,10 @@
 import express from "express";
 import db from "../db/conn.mjs";
 import { ObjectId } from "mongodb";
+const bcrypt = require('bcrypt');
 
 const router = express.Router();
+const token = require('crypto').randomBytes(64).toString('hex');
 
 router.get("/", async (req, res) => {
   let collection = await db.collection("Fragen");
@@ -114,5 +116,38 @@ router.put("/update/:id", async (req, res) => {
     res.status(500).send({ error: 'Fehler beim updaten' });
   }
 });
+
+router.post('/register', async (req, res) => {
+  const { username, email, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = await db.collection('Users').insertOne({ username, email, password: hashedPassword });
+  if (user) {
+    res.status(200).send({ message: 'User erfolgreich angelegt' });
+  } else {
+    res.status(500).send({ error: 'Fehler bei der Registrierung' });
+  }
+});
+
+router.post('/login', async (req, res) => {
+  const user = await verifyUserCredentials(req.body.username, req.body.password);
+  if (user) {
+    const token = jwt.sign({ id: user._id }, token, { expiresIn: '1h' });
+    res.status(200).send({ token });
+    console.log("Login erfolgreich");
+  } else {
+    res.status(401).send({ error: 'Ungültige Eingabedaten' });
+  }
+});
+
+async function verifyUserCredentials(username, password) {
+  const user = await db.collection('Users').findOne({ username });
+  if (user) {
+    const passwordMatches = await bcrypt.compare(password, user.password);
+    if (passwordMatches) {
+      return user;
+    }
+  }
+  return null;
+}
 
 export default router;

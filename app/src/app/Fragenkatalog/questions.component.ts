@@ -39,12 +39,10 @@ export class QuestionsComponent {
           let question = new Question();
           question.kategorie = item.kategorie;
           question.frage = item.frage;
-          question.antworten = [
-            item.antwort1,
-            item.antwort2,
-            item.antwort3,
-            item.antwort4,
-          ];
+          question.antworten.antwort1 = item.antwort1;
+          question.antworten.antwort2 = item.antwort2;
+          question.antworten.antwort3 = item.antwort3;
+          question.antworten.antwort4 = item.antwort4;
           question.korrekteAntwort = item.korrekteAntwort;
           return question;
         });
