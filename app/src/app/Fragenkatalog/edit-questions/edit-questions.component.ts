@@ -68,28 +68,53 @@ export class EditQuestionsComponent {
 
   async speichern() {
     const item = this.form.value;
-    item.kategorie = this.choosenCategory;
-    const response = await this.http
-      .post('http://localhost:5050/posts/newQuestion', item)
-      .toPromise();
-    window.location.reload();
+    if (this.eingabePruefen(item)) {
+      item.kategorie = this.choosenCategory;
+      const response = await this.http
+        .post('http://localhost:5050/posts/newQuestion', item)
+        .toPromise();
+      window.location.reload();
+    } else {
+      alert('Bitte alle Felder ausfüllen!');
+    }
   }
 
   async update(form: FormGroup, index: number) {
     const item = form.value;
-    let _id = this.message[index]._id;
-    const response = await this.http
-      .put(`http://localhost:5050/posts/update/${_id}`, item)
-      .toPromise();
-    window.location.reload();
+    if (this.eingabePruefen(item)) {
+      let _id = this.message[index]._id;
+      const response = await this.http
+        .put(`http://localhost:5050/posts/update/${_id}`, item)
+        .toPromise();
+      window.location.reload();
+    } else {
+      alert('Bitte alle Felder ausfüllen!');
+    }
   }
 
   async loeschen(index: number) {
     let item = this.message[index];
-    let _id = item._id;
-    const response = await this.http
-      .delete(`http://localhost:5050/posts/delete/${_id}`)
-      .toPromise();
-    window.location.reload();
+    if (this.eingabePruefen(item)) {
+      let _id = item._id;
+      const response = await this.http
+        .delete(`http://localhost:5050/posts/delete/${_id}`)
+        .toPromise();
+      window.location.reload();
+    } else {
+      alert('Bitte alle Felder ausfüllen!');
+    }
+  }
+
+  eingabePruefen(item: any): boolean {
+    let rueckgabe = false;
+    item.frage != '' &&
+    item.antworten.antwort1 != '' &&
+    item.antworten.antwort2 != '' &&
+    item.antworten.antwort3 != '' &&
+    item.antworten.antwort4 != '' &&
+    item.korrekteAntwort != ''
+      ? (rueckgabe = true)
+      : (rueckgabe = false);
+    return rueckgabe;
   }
 }
