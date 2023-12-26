@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { DBService } from '../services/db.service';
 import { AppRoutingModule } from './app.routes';
 import { StartComponent } from './start/start.component';
 import { HomeComponent } from './home/home.component';
@@ -31,7 +30,7 @@ import { CategoryDialogComponent } from './fragenkatalog/category-dialog/categor
     MatButtonModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
@@ -48,7 +47,6 @@ import { CategoryDialogComponent } from './fragenkatalog/category-dialog/categor
     QuestionDialogComponent,
     CategoryDialogComponent
   ],
-  providers: [DBService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
