@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
       .post('http://localhost:5050/posts/login', this.loginObj)
       .subscribe(
         (response: any) => {
-          if (response && response.token) {
-            localStorage.setItem('jwtToken', response.token);
+          if (response && response.jwtToken) {
+            localStorage.setItem('jwtToken', response.jwtToken);
             this.router.navigate(['/home']);
           } else {
           }

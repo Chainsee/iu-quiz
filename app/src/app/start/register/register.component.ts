@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSignUp() {
-    this.http.post('http://localhost:5050/register', this.signupObj).subscribe(
+    this.http.post('http://localhost:5050/posts/register', this.signupObj).subscribe(
       (response) => {
         this.router.navigate(['/home']);
       },
