@@ -37,12 +37,12 @@ export class EditQuestionsComponent {
     this.message.forEach((item: any) => {
       const group = this.formBuilder.group({
         frage: [item.frage],
-        antworten: {
+        antworten: this.formBuilder.group({
           antwort1: [item.antworten.antwort1],
           antwort2: [item.antworten.antwort2],
           antwort3: [item.antworten.antwort3],
           antwort4: [item.antworten.antwort4],
-        },
+        }),
         korrekteAntwort: [item.korrekteAntwort],
         kategorie: [item.kategorie],
       });
