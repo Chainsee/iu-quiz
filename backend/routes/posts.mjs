@@ -27,9 +27,7 @@ router.get("/getAll", async (req, res) => {
 
 router.get("/getKategorien", async (req, res) => {
   let collection = await db.collection("Fragen");
-  let results = await collection
-    .aggregate([{ $project: { kategorie: 1 } }])
-    .toArray();
+  let results = await collection.distinct("kategorie");
   res.send(results).status(200);
   console.log("Kategorien gelesen: ");
 });
