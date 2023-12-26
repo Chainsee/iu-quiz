@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,11 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private snackbar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
   onLogin() {
@@ -30,7 +35,9 @@ export class LoginComponent implements OnInit {
           }
         },
         (error) => {
-          alert('Fehler beim Login');
+          this.snackbar.open('Login fehlgeschlagen', 'Schließen', {
+            duration: 2000,
+          });
         }
       );
   }
