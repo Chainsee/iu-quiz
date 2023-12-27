@@ -2,13 +2,13 @@ import {
   MatCommonModule,
   coerceNumberProperty,
   mixinColor
-} from "./chunk-J236RWE2.js";
-import "./chunk-GUTZEYEG.js";
-import "./chunk-CNBNJB53.js";
-import "./chunk-MJI5GCA4.js";
+} from "./chunk-B44APYX4.js";
+import "./chunk-7TI2AM5T.js";
+import "./chunk-X2JIPI25.js";
+import "./chunk-QQNB5GLO.js";
 import {
   DOCUMENT
-} from "./chunk-MOXJW37J.js";
+} from "./chunk-VQ6HCVBD.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
@@ -38,7 +38,10 @@ import {
   ɵɵelementEnd,
   ɵɵelementStart,
   ɵɵstyleProp
-} from "./chunk-IXLZC3Q5.js";
+} from "./chunk-YFFSEU4U.js";
+import "./chunk-ES73P22H.js";
+import "./chunk-DVECPVR7.js";
+import "./chunk-PIJ7O2QI.js";
 import "./chunk-OXCW2X5T.js";
 
 // node_modules/@angular/material/fesm2022/progress-bar.mjs

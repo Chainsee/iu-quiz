@@ -22,6 +22,7 @@ import { CategoryDialogComponent } from './fragenkatalog/category-dialog/categor
 import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './start/login/login.component';
 import { RegisterComponent } from './start/register/register.component';
+import { GlobalHeaderComponent } from './global-header/global-header.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { RegisterComponent } from './start/register/register.component';
     QuestionDialogComponent,
     CategoryDialogComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GlobalHeaderComponent
   ],
   bootstrap: [AppComponent],
 })
