@@ -1,23 +1,20 @@
 <img class="logo" src="../../assets/images/IU-Quiz_Logo.png" alt="Logo" />
 
 <mat-menu #appMenu="matMenu">
-  <button mat-menu-item>Benutzerprofil</button>
-  <button mat-menu-item>Einstellungen</button>
+  <button class="Untermenue" mat-menu-item>Benutzerprofil</button>
+  <button class="Untermenue" mat-menu-item>Einstellungen</button>
 </mat-menu>
-<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
-<div class="panel1">
-<div class="text">
-    <div class="headline">
-      Spielmodus wählen: <br />
-    </div>
-</div>    
-</div>
-<div class="panel">
-<button class= "button" onclick = "window.location.href='http://localhost:4200/game'">Single-Player Modus
-<img class="SinglePlayerBild" src="../../assets/images/SinglePlayer.png" alt="SinglePlayerBild" />
+<button class="menu" mat-flat-button [matMenuTriggerFor]="appMenu">Menü</button>
 
+<div class="headline">Spielmodus wählen:</div>
+
+<div class="panel">
+<button class= "Playmodus" onclick = "window.location.href='http://localhost:4200/game'">Single-Player Modus
+<img class="image" src="../../assets/images/undraw_Visualization.png" />
 </button>
-<button class="button" onclick = "window.location.href='http://localhost:4200/game'">Multi-Player Modus
-  <img class="SinglePlayerBild" src="../../assets/images/undraw_Engineering_team_a7n2.png" alt="SinglePlayerBild" />
+
+<button class="Playmodus" onclick = "window.location.href='http://localhost:4200/game'">Multi-Player Modus
+ <img class="image" src="../../assets/images/undraw_Visualization.png"  />
     </button>
 </div>
+
