@@ -1,7 +1,7 @@
 <div class="dialog">
   <h1 class="header">Wähle deine Kategorie</h1>
   <select class="select" [(ngModel)] = "selectedCategory" name = "selectedCategory">
-    <option *ngFor="let post of categories" [value]="post.kategorie">{{post.kategorie}}</option>
+    <option *ngFor="let category of categories" [value]="category">{{category}}</option>
   </select>
   <div class="buttonPanel">
     <button class="homeButton" (click)="getCategory()">Auswählen</button>

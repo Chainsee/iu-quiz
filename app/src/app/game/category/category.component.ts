@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class CategoryComponent {
   categories: any;
   selectedCategory: any;
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
   async ngOnInit() {
     let posts = async () => {
       let response = await fetch('http://localhost:5050/posts/getKategorien');
@@ -20,6 +20,8 @@ export class CategoryComponent {
   }
 
   getCategory() {
-    this.router.navigate(['/game', this.selectedCategory]);
+    if (this.selectedCategory == null) {
+      this.router.navigate(['/game', this.selectedCategory]);
+    }
   }
 }

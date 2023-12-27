@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { DBService } from '../services/db.service';
 import { AppRoutingModule } from './app.routes';
 import { StartComponent } from './start/start.component';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +20,9 @@ import { QuestionDialogComponent } from './fragenkatalog/question-dialog/questio
 import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-questions.component';
 import { CategoryDialogComponent } from './fragenkatalog/category-dialog/category-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { LoginComponent } from './start/login/login.component';
+import { RegisterComponent } from './start/register/register.component';
+import { GlobalHeaderComponent } from './global-header/global-header.component';
 
 @NgModule({
   imports: [
@@ -48,9 +50,11 @@ import {MatMenuModule} from '@angular/material/menu';
     QuestionDialogComponent,
     EditQuestionsComponent,
     QuestionDialogComponent,
-    CategoryDialogComponent
+    CategoryDialogComponent,
+    LoginComponent,
+    RegisterComponent,
+    GlobalHeaderComponent
   ],
-  providers: [DBService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

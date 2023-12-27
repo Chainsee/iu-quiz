@@ -1,34 +1,47 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router'; //login verbinden RouterLink, RouterLinkActive
-import { OnInit } from '@angular/core';   //Für Registrierung
-import { FormsModule } from '@angular/forms';   //Für Registrierung
+import { HttpClient } from '@angular/common/http';
+import { OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, FormsModule], //login verbinden RouterLink, RouterLinkActive
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
-  signupUsers: any[]=[];    //Deklaration Array
-  loginObj:any ={   //Objekt für Login
+  signupUsers: any[] = [];
+  loginObj: any = {
     username: '',
-    password: ''
+    password: '',
   };
 
-  ngOnInit(): void {    //Für Registrierung
-    
-  }
-  onLogin(){    //Speichern der Eingaben in Objekt
-    this.signupUsers.push(this.loginObj);
-    localStorage.setItem('signUpUsers', JSON.stringify(this.signupUsers));
-    this. loginObj = {     
-      username: '',
-      password: ''
-    };
-   //let test?: string = localStorage.getItem('signUpRegisterUsers')
-  } 
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private snackbar: MatSnackBar
+  ) {}
 
+  ngOnInit(): void {}
+  onLogin() {
+    this.http
+      .post('http://localhost:5050/posts/login', this.loginObj)
+      .subscribe(
+        (response: any) => {
+          if (response && response.jwtToken) {
+            localStorage.setItem('jwtToken', response.jwtToken);
+            this.snackbar.open('Login erfolgreich', 'Schließen', {
+              duration: 2000,
+            });
+            this.router.navigate(['/home']);
+          } else {
+          }
+        },
+        (error) => {
+          this.snackbar.open('Login fehlgeschlagen', 'Schließen', {
+            duration: 2000,
+          });
+        }
+      );
+  }
 }

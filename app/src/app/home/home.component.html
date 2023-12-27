@@ -1,10 +1,25 @@
+<app-global-header></app-global-header>
 <img class="logo" src="../../assets/images/IU-Quiz_Logo.png" alt="Logo" />
 
 <mat-menu #appMenu="matMenu">
   <button class="Untermenue" mat-menu-item>Benutzerprofil</button>
   <button class="Untermenue" mat-menu-item>Einstellungen</button>
 </mat-menu>
+<<<<<<< HEAD
 <button class="menu" mat-flat-button [matMenuTriggerFor]="appMenu">Menü</button>
+=======
+<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
+<div class="panel1">
+<div class="text">
+    <div class="headline">
+      Spielmodus wählen: <br />
+    </div>
+</div>
+</div>
+<div class="panel">
+<button class= "button" onclick = "window.location.href='http://localhost:4200/game'">Single-Player Modus
+<img class="SinglePlayerBild" src="../../assets/images/SinglePlayer.png" alt="SinglePlayerBild" />
+>>>>>>> a1776ffc2034d30c28eea4b083f5664f0bebedbe
 
 <div class="headline">Spielmodus wählen:</div>
 

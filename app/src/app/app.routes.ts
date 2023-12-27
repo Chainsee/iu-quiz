@@ -9,17 +9,18 @@ import { LoginComponent } from './start/login/login.component';
 import { QuestionsComponent } from './fragenkatalog/questions.component' ;
 import { CategoryComponent } from './game/category/category.component';
 import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-questions.component';
+import { AuthGuard } from './../services/authGuard.service';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'start', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'start', component: StartComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'game/:category', component: GameComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'fragenkatalog', component: QuestionsComponent},
-  {path: 'fragenbearbeiten/:category', component: EditQuestionsComponent},
-  {path: 'auswahl', component: CategoryComponent}
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'game/:category', component: GameComponent, canActivate: [AuthGuard]},
+  {path: 'fragenkatalog', component: QuestionsComponent, canActivate: [AuthGuard]},
+  {path: 'fragenbearbeiten/:category', component: EditQuestionsComponent, canActivate: [AuthGuard]},
+  {path: 'auswahl', component: CategoryComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

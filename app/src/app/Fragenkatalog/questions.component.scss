@@ -33,4 +33,47 @@ $var: 100vw;
   text-shadow: 0 0 0.6rem rgba($black-color, 0.35);
   font-family: "Roboto", sans-serif;
   font-size: calc($var/100);
+  max-width: calc($var/5);
+}
+
+.explanation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc($var/60);
+  font-size: calc($var/100);
+  font-weight: 500;
+  text-shadow: 0 0 0.6rem rgba($black-color, 0.35);
+  font-family: "Roboto", sans-serif;
+}
+
+.explanation2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc($var/100);
+  font-weight: 500;
+  text-shadow: 0 0 0.6rem rgba($black-color, 0.35);
+  font-family: "Roboto", sans-serif;
+}
+
+input{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc($var/60);
+}
+
+td, th {
+  border: 1px solid black;
+  padding: calc($var/100);
+}
+
+.input{
+  margin-top: calc($var/60);
 }

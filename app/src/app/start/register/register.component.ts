@@ -1,40 +1,42 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';//register verbinden RouterLink, RouterLinkActive
-import { OnInit } from '@angular/core';   //Für Registrierung
-import { FormsModule } from '@angular/forms';   //Für Registrierung
+import { OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, FormsModule], //register verbinden RouterLink, RouterLinkActive
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrl: './register.component.scss',
 })
-export class RegisterComponent implements OnInit {      //implments OnInit für Registrierung
-  signupUsers: any[]=[];    //Deklaration Array
-  signupObj: any ={      //Objekt für Registrierung
+export class RegisterComponent implements OnInit {
+  signupUsers: any[] = [];
+  signupObj: any = {
     username: '',
     email: '',
-    password: ''
+    password: '',
   };
-  
 
-  ngOnInit(): void { }     //Für Registrierung
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private snackbar: MatSnackBar
+  ) {}
 
-  onSignUp(){       //Speichern der Eingaben in Objekt
-    this.signupUsers.push(this.signupObj);
-    localStorage.setItem('signUpRegisterUsers', JSON.stringify(this.signupUsers));
-    this. signupObj = {     
-      username: '',
-      email: '',
-      password: ''
-    };
+  ngOnInit(): void {}
+
+  onSignUp() {
+    this.http
+      .post('http://localhost:5050/posts/register', this.signupObj)
+      .subscribe(
+        (response) => {
+          this.router.navigate(['/home']);
+        },
+        (error) => {
+          this.snackbar.open('Registrierung fehlgeschlagen', 'Schließen', {
+            duration: 2000,
+          });
+        }
+      );
   }
-  
- 
-
 }
-
-
-
