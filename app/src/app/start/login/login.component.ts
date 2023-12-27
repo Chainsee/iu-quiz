@@ -30,6 +30,9 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           if (response && response.jwtToken) {
             localStorage.setItem('jwtToken', response.jwtToken);
+            this.snackbar.open('Login erfolgreich', 'Schließen', {
+              duration: 2000,
+            });
             this.router.navigate(['/home']);
           } else {
           }

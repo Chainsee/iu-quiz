@@ -175,7 +175,7 @@ router.get("/validate", async (req, res) => {
     if (err) {
       return res
         .status(500)
-        .send({ auth: false, message: "Fehler bei der Validierung" });
+        .send({ auth: false, message: "Fehler bei der Validierung", error: err.message});
     }
 
     req.userId = decoded.id;
