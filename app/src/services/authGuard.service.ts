@@ -26,41 +26,19 @@ export class AuthGuard implements CanActivate {
           if (response.status === 200) {
             return true;
           } else {
-            this.router.navigate(['/login']);
+            this.router.navigate(['/start']);
             return false;
           }
         }),
         catchError(error => {
           console.error(error);
-          this.router.navigate(['/login']);
+          this.router.navigate(['/start']);
           return of(false);
         })
       );
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/start']);
       return of(false);
     }
   }
-
-  // async canActivate(): Promise<Observable<boolean>> {
-  //   const jwtToken = localStorage.getItem('jwtToken');
-
-  //   if (jwtToken) {
-  //     async () => {
-  //       let response = await fetch('http://localhost:5050/posts/validate', {
-  //         headers: {
-  //           Authorization: `Bearer ${jwtToken}`,
-  //         },
-  //       });
-  //       if (response.status === 200) {
-  //         return of(true);
-  //       } else {
-  //         this.router.navigate(['/login']);
-  //         return of(false);
-  //       }
-  //     };
-  //   }
-  //   this.router.navigate(['/login']);
-  //   return of(false);
-  // }
 }
