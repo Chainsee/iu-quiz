@@ -8,12 +8,12 @@
     <div *ngFor="let item of message; let i = index">
       <div
         [ngClass]="{
-          rightAnswer: isRightAnswer[i],
-          wrongAnswer: !isRightAnswer[i]
+          rightAnswer: isRightAnswer[i]  && i <= this.i,
+          wrongAnswer: !isRightAnswer[i]  && i <= this.i
         }"
       >
-        <span class="check" *ngIf="isRightAnswer[i]">&#10004;</span
-        ><span class="cross" *ngIf="getWrongAnswer(i)">x</span>
+        <span class="check" *ngIf="isRightAnswer[i] && i <= this.i">&#10004;</span
+        ><span class="cross" *ngIf="getWrongAnswer(i) && i <= this.i">x</span>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@ export class CategoryComponent {
   }
 
   getCategory() {
-    if (this.selectedCategory == null) {
+    if (this.selectedCategory != null) {
       this.router.navigate(['/game', this.selectedCategory]);
     }
   }
