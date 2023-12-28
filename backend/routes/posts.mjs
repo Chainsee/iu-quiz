@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb";
 import { randomBytes } from "crypto";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config;
 
@@ -58,6 +58,27 @@ router.get("/getKat", async (req, res) => {
     .toArray();
   res.send(results).status(200);
   console.log("Ausgewählte Kategorie gelesen: ");
+});
+
+router.get("/validate", async (req, res) => {
+  const bearerHeader = req.headers["authorization"];
+  if (bearerHeader) {
+    const bearer = bearerHeader.split(" ");
+    const token = bearer[1];
+    if (!token) {
+      return res
+        .status(403)
+        .send({ auth: false, message: "Kein Token übermittelt" });
+    }
+    jwt.verify(token, JWT_SECRET, (err, decoded) => {
+      if (err) {
+        return res
+          .status(500)
+          .send({ auth: false, message: "Fehler bei der Validierung" });
+      }
+      res.send({ auth: true, message: "Token is valid" });
+    });
+  }
 });
 
 router.get("/:id", async (req, res) => {
@@ -141,7 +162,9 @@ router.post("/login", async (req, res) => {
     req.body.password
   );
   if (user) {
-    const jwtToken = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
+    const jwtToken = jwt.sign({ id: user._id }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
     res.status(200).send({ jwtToken });
     console.log("Login erfolgreich");
   } else {
@@ -159,28 +182,5 @@ async function verifyUserCredentials(username, password) {
   }
   return null;
 }
-
-router.get("/validate", async (req, res) => {
-  const bearerHeader = req.headers["Authorization"];
-  const bearer = bearerHeader.split(" ");
-  const token = bearer[1];
-
-  if (!token) {
-    return res
-      .status(403)
-      .send({ auth: false, message: "Kein Token übermittelt" });
-  }
-
-  jwt.verify(token, JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res
-        .status(500)
-        .send({ auth: false, message: "Fehler bei der Validierung", error: err.message});
-    }
-
-    req.userId = decoded.id;
-    res.status(200).send(decoded);
-  });
-});
 
 export default router;
