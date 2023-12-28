@@ -11,6 +11,10 @@ export class GlobalHeaderComponent {
     console.log('showProfile');
   }
 
+  showFriends() {
+    console.log('showFriends');
+  }
+
   abmelden(){
     localStorage.removeItem('jwtToken');
     window.location.reload();

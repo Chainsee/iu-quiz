@@ -1,6 +1,7 @@
 <div class="panel">
   <mat-menu #appMenu="matMenu">
     <button class="Untermenue" mat-menu-item (click)="showProfile()">Benutzerprofil</button>
+    <button class="Untermenue" mat-menu-item (click)="showFriends()">Freunde</button>
     <button class="Untermenue" mat-menu-item (click)="abmelden()">Abmelden</button>
   </mat-menu>
   <button class="menu" mat-flat-button [matMenuTriggerFor]="appMenu">
