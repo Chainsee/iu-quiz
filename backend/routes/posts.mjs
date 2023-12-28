@@ -150,7 +150,11 @@ router.post("/register", async (req, res) => {
     .collection("Users")
     .insertOne({ username, email, password: hashedPassword });
   if (user) {
-    res.status(200).send({ message: "User erfolgreich angelegt" });
+    const jwtToken = jwt.sign({ id: user._id }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
+    res.status(200).send({ jwtToken });
+    console.log("Login erfolgreich");
   } else {
     res.status(500).send({ error: "Fehler bei der Registrierung" });
   }

@@ -29,8 +29,15 @@ export class RegisterComponent implements OnInit {
     this.http
       .post('http://localhost:5050/posts/register', this.signupObj)
       .subscribe(
-        (response) => {
-          this.router.navigate(['/home']);
+        (response: any) => {
+          if (response && response.jwtToken) {
+            localStorage.setItem('jwtToken', response.jwtToken);
+            this.snackbar.open('Registrierung erfolgreich', 'Schließen', {
+              duration: 2000,
+            });
+            this.router.navigate(['/home']);
+          } else {
+          }
         },
         (error) => {
           this.snackbar.open('Registrierung fehlgeschlagen', 'Schließen', {
