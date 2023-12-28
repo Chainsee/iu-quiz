@@ -33,6 +33,7 @@ export class GameComponent {
   }
 
   isRightAnswer: boolean[] = [];
+  questionAnswered: boolean[] = [];
 
   checkAnswer(nummer: number): void {
     let richtig: boolean;
@@ -42,6 +43,7 @@ export class GameComponent {
       richtig = false;
     }
     this.isRightAnswer.push(richtig);
+    this.questionAnswered.push(true);
     //Prüfung, ob noch Fragen unbeantwortet sind
     if (!this.end()) {
       this.i++;

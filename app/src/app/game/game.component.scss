@@ -1,19 +1,19 @@
-$yellow-color: #F6FF63;
-$purple-color: #6C63FF;
-$grey-color: #CCCCCC;
+$yellow-color: #f6ff63;
+$purple-color: #6c63ff;
+$grey-color: #cccccc;
 $black-color: #000000;
-$green-color: #2FAB73;
+$green-color: #2fab73;
 $red-color: #bc0c0cc5;
 
 $var: 100vw;
 
-.gamePage{
+.gamePage {
   height: 100%;
   width: calc($var/1);
   overflow: hidden;
 }
 
-.logo{
+.logo {
   // display: block;
   margin-left: auto;
   margin-right: auto;
@@ -22,7 +22,7 @@ $var: 100vw;
   align-items: center;
 }
 
-.kategorie{
+.kategorie {
   display: flex;
   align-items: center;
   position: relative;
@@ -36,8 +36,8 @@ $var: 100vw;
   background-color: $yellow-color;
 }
 
-.kategorie_text{
-  font-family: 'Roboto', sans-serif;
+.kategorie_text {
+  font-family: "Roboto", sans-serif;
   font-size: calc($var/120);
   display: block;
   margin-left: auto;
@@ -45,7 +45,7 @@ $var: 100vw;
   color: $black-color;
 }
 
-.frage{
+.frage {
   position: relative;
   display: flex;
   justify-content: center;
@@ -56,7 +56,7 @@ $var: 100vw;
   top: calc($var/100);
   width: calc($var/1.5);
   height: calc($var/10);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: calc($var/70);
   color: white;
   font-weight: bold;
@@ -64,37 +64,46 @@ $var: 100vw;
   background-color: $purple-color;
 }
 
-.panel{
+.panel {
   display: flex;
   justify-content: center;
 }
 
-.panelCheckMark{
+.panelCheckMark {
   display: flex;
   padding: calc($var/100);
   justify-content: center;
   align-items: center;
 }
 
-.rightAnswer{
+.rightAnswer {
   background-color: $green-color;
   margin: calc($var/100);
   width: calc($var/50);
   height: calc($var/50);
   border-radius: 50%;
   cursor: pointer;
-  }
+}
 
-.wrongAnswer{
+.blank {
+  background-color: $grey-color;
+  margin: calc($var/100);
+  width: calc($var/50);
+  height: calc($var/50);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.wrongAnswer {
   background-color: $red-color;
   margin: calc($var/100);
   width: calc($var/50);
   height: calc($var/50);
   border-radius: 50%;
   cursor: pointer;
-  }
+}
 
-.checkMark{
+.checkMark {
   margin: calc($var/100);
   width: calc($var/50);
   height: calc($var/50);
@@ -103,17 +112,17 @@ $var: 100vw;
   cursor: pointer;
 }
 
-.check{
-  padding-top:0.3rem;
-  display:flex;
+.check {
+  padding-top: 0.3rem;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.cross{
+.cross {
   padding-top: 0.3rem;
   font-weight: bold;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -125,19 +134,19 @@ $var: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   width: calc($var/3.3);
   height: calc($var/20);
   font-size: calc($var/100);
   font-weight: bold;
-  color: $purple-color  ;
+  color: $purple-color;
   background-color: $grey-color;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-mat-progress-bar{
+mat-progress-bar {
   position: relative;
   display: block;
   margin-left: auto;
