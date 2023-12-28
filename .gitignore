@@ -45,3 +45,4 @@ testem.log
 Thumbs.db
 node_modules
 app/.angular/cache
+app/.angular/cache/17.0.6/iu-quiz/.tsbuildinfo

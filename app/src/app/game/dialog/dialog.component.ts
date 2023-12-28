@@ -17,7 +17,7 @@ export class DialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router
   ) {
-    this.score = data.score;
+    this.score = parseFloat(data.score.toFixed(0));
   }
 
   goHome() {
