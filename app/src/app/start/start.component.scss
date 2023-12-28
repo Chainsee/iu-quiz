@@ -3,6 +3,11 @@ $purple-color: #6C63FF;
 $white-color: #FFFFFF;
 $green-color: #2FAB73;
 
+.link{
+  text-decoration: none;
+  color: $white-color;
+}
+
 .panel{
   display: flex;
   justify-content: center;
@@ -94,6 +99,13 @@ ul li:before {
   border-radius: 0.3rem;
   background-color: $purple-color;
   box-shadow: 0 0 1rem rgba($purple-color, 0.70);
+}
+
+.button:active,
+.button:focus {
+  color: inherit;
+  background-color: inherit;
+  outline: none;
 }
 
 .image {

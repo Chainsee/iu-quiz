@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class GlobalHeaderComponent {
   jwtToken = localStorage.getItem('jwtToken');
+  showProfile() {
+    console.log('showProfile');
+  }
+
+  abmelden(){
+    localStorage.removeItem('jwtToken');
+    window.location.reload();
+  }
 }
