@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {}
@@ -35,6 +37,7 @@ export class RegisterComponent implements OnInit {
             this.snackbar.open('Registrierung erfolgreich', 'Schließen', {
               duration: 2000,
             });
+            this.authService.setCurrentUser(this.signupObj.username);
             this.router.navigate(['/home']);
           } else {
           }

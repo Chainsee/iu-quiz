@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,10 +20,15 @@ export class LoginComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(localStorage.getItem('jwtToken')){
+      this.router.navigate(['/home']);
+    }
+  }
   onLogin() {
     this.http
       .post('http://localhost:5050/posts/login', this.loginObj)
@@ -33,6 +39,7 @@ export class LoginComponent implements OnInit {
             this.snackbar.open('Login erfolgreich', 'Schließen', {
               duration: 2000,
             });
+            this.authService.setCurrentUser(this.loginObj.username);
             this.router.navigate(['/home']);
           } else {
           }
