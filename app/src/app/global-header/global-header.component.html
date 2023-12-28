@@ -1,11 +1,19 @@
 <div class="panel">
   <mat-menu #appMenu="matMenu">
-    <button class="Untermenue" mat-menu-item (click)="showProfile()">Benutzerprofil</button>
-    <button class="Untermenue" mat-menu-item (click)="showFriends()">Freunde</button>
-    <button class="Untermenue" mat-menu-item (click)="abmelden()">Abmelden</button>
+    <button class="Untermenue" mat-menu-item (click)="showProfile()">
+      Benutzerprofil
+    </button>
+    <button class="Untermenue" mat-menu-item (click)="showFriends()">
+      Freunde
+    </button>
+    <button class="Untermenue" mat-menu-item (click)="abmelden()">
+      Abmelden
+    </button>
   </mat-menu>
   <button class="menu" mat-flat-button [matMenuTriggerFor]="appMenu">
     Menü
   </button>
-  <img class="logo" src="../../assets/images/IU-Quiz_Logo.png" alt="Logo" />
+  <a class="logo_link" href="/start">
+    <img class="logo" src="../../assets/images/IU-Quiz_Logo.png" alt="Logo"/>
+  </a>
 </div>
