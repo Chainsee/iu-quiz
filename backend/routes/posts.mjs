@@ -184,7 +184,7 @@ router.post("/login", async (req, res) => {
   );
   if (user) {
     const jwtToken = jwt.sign({ id: user._id }, JWT_SECRET, {
-      expiresIn: "1h",
+      expiresIn: "2h",
     });
     res.status(200).send({ jwtToken, userId: user._id });
     console.log("Login erfolgreich");

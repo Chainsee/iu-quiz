@@ -93,6 +93,7 @@ export class GameComponent {
     this.ergebnis.score = this.calculatePercentage();
     this.ergebnis.user = this.authService.getCurrentUser();
     this.ergebnis.kategorie = this.route.snapshot.paramMap.get('category');
+    //Timezone?
     this.ergebnis.date = new Date();
     const response = await this.http
       .post('http://localhost:5050/posts/newScore', this.ergebnis, {
