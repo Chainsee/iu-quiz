@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
         (response: any) => {
           if (response && response.jwtToken) {
             localStorage.setItem('jwtToken', response.jwtToken);
+            localStorage.setItem('userId', response.userId);
             this.snackbar.open('Registrierung erfolgreich', 'Schließen', {
               duration: 2000,
             });
