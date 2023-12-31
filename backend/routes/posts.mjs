@@ -105,6 +105,17 @@ router.post("/newQuestion", async (req, res) => {
   res.send(result).status(204);
 });
 
+router.post("/newScore", async (req, res) => {
+  console.log("Score hinzugefügt");
+  let collection = await db.collection("UserScore");
+  console.log("Score hinzugefügt");
+  let newDocument = req.body;
+  console.log("Score hinzugefügt");
+  let result = await collection.insertOne(newDocument);
+  console.log("Score hinzugefügt");
+  res.send(result).status(204);
+});
+
 router.delete("/delete/:id", async (req, res) => {
   let collection = await db.collection("Fragen");
   let query;
