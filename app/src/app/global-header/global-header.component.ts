@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-global-header',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './global-header.component.scss',
 })
 export class GlobalHeaderComponent {
+  constructor(private router: Router) {}
+
   jwtToken = localStorage.getItem('jwtToken');
   showProfile() {
     console.log('showProfile');
@@ -13,6 +16,10 @@ export class GlobalHeaderComponent {
 
   showFriends() {
     console.log('showFriends');
+  }
+
+  fragenkatalog(){
+    this.router.navigate(['/fragenkatalog']);
   }
 
   abmelden(){

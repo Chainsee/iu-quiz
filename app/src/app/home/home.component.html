@@ -1,32 +1,13 @@
 <app-global-header></app-global-header>
 
-
-<!-- <mat-menu #appMenu="matMenu">
-  <button class="Untermenue" mat-menu-item>Benutzerprofil</button>
-  <button class="Untermenue" mat-menu-item>Einstellungen</button>
-</mat-menu> -->
-<!-- <button class="menu" mat-flat-button [matMenuTriggerFor]="appMenu">Menü</button>
-<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button> -->
-<div class="panel1">
-<div class="text">
-    <div class="headline">
-      Spielmodus wählen: <br />
-    </div>
-</div>
-</div>
-<div class="panel">
-<button class= "button" onclick = "window.location.href='http://localhost:4200/game'">Single-Player Modus
-<img class="SinglePlayerBild" src="../../assets/images/SinglePlayer.png" alt="SinglePlayerBild" />
-
 <div class="headline">Spielmodus wählen:</div>
 
 <div class="panel">
-<button class= "Playmodus" onclick = "window.location.href='http://localhost:4200/game'">Single-Player Modus
-<img class="image" src="../../assets/images/undraw_Visualization.png" />
-</button>
+  <button class="Playmodus" (click)="game()">
+    Single-Player Modus
+  </button>
 
-<button class="Playmodus" onclick = "window.location.href='http://localhost:4200/game'">Multi-Player Modus
- <img class="image" src="../../assets/images/undraw_Visualization.png"  />
-    </button>
+  <button class="Playmodus" (click)="game()">
+    Multi-Player Modus
+  </button>
 </div>
-

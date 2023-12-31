@@ -4,6 +4,7 @@ import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../../services/auth.service';
+import { AuthGuard } from '../../../services/authGuard.service';
 
 @Component({
   selector: 'app-login',
@@ -21,11 +22,14 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private snackbar: MatSnackBar,
-    private authService: AuthService
+    private authService: AuthService,
+    private authGuard: AuthGuard
+
   ) {}
 
   ngOnInit(): void {
-    if(localStorage.getItem('jwtToken')){
+    const jwtToken = localStorage.getItem('jwtToken');
+    if(jwtToken && this.authGuard.canActivate() ){
       this.router.navigate(['/home']);
     }
   }
