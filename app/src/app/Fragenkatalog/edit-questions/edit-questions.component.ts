@@ -94,15 +94,11 @@ export class EditQuestionsComponent {
 
   async loeschen(index: number) {
     let item = this.message[index];
-    if (this.eingabePruefen(item)) {
-      let _id = item._id;
-      const response = await this.http
-        .delete(`http://localhost:5050/posts/delete/${_id}`)
-        .toPromise();
-      window.location.reload();
-    } else {
-      alert('Bitte alle Felder korrekt ausfüllen!');
-    }
+    let _id = item._id;
+    const response = await this.http
+      .delete(`http://localhost:5050/posts/delete/${_id}`)
+      .toPromise();
+    window.location.reload();
   }
 
   eingabePruefen(item: any): boolean {
@@ -112,7 +108,7 @@ export class EditQuestionsComponent {
     item.antworten.antwort2 != '' &&
     item.antworten.antwort3 != '' &&
     item.antworten.antwort4 != '' &&
-    item.korrekteAntwort === 'number' &&
+    item.korrekteAntwort != '' &&
     item.korrekteAntwort >= 1 &&
     item.korrekteAntwort <= 4
       ? (rueckgabe = true)
