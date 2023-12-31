@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-edit-questions',
@@ -17,7 +18,8 @@ export class EditQuestionsComponent {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) {}
 
   async ngOnInit() {
@@ -60,6 +62,7 @@ export class EditQuestionsComponent {
     }),
     korrekteAntwort: new FormControl('', Validators.required),
     kategorie: new FormControl('', Validators.required),
+    user: new FormControl('', Validators.required),
   });
 
   getFormGroup(index: number): FormGroup {
@@ -70,6 +73,7 @@ export class EditQuestionsComponent {
     const item = this.form.value;
     if (this.eingabePruefen(item)) {
       item.kategorie = this.choosenCategory;
+      item.user = this.authService.getCurrentUser()
       const response = await this.http
         .post('http://localhost:5050/posts/newQuestion', item)
         .toPromise();

@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
+  canActivateResult!: boolean;
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -28,11 +29,11 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const jwtToken = localStorage.getItem('jwtToken');
-    if(jwtToken && this.authGuard.canActivate() ){
-      this.router.navigate(['/home']);
-    }
+    this.authGuard.isActivate().subscribe((result) => {
+      this.canActivateResult = result;
+    });
   }
+
   onLogin() {
     this.http
       .post('http://localhost:5050/posts/login', this.loginObj)
