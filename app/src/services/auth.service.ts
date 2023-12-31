@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private currentUser!: string;
-
-  constructor() { }
+  private currentUser!: any;
 
   setCurrentUser(user: string) {
     this.currentUser = user;
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
   }
 
-  getCurrentUser() {
-    return this.currentUser;
+  getCurrentUser(): string {
+    const currentUser = localStorage.getItem('currentUser');
+    return currentUser ? JSON.parse(currentUser) : null;
   }
 }

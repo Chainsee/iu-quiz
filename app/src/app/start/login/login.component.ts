@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
     this.authGuard.isActivate().subscribe((result) => {
       this.canActivateResult = result;
     });
+    if(!this.canActivateResult){
+      localStorage.removeItem('userId');
+    }
   }
 
   onLogin() {
@@ -41,6 +44,7 @@ export class LoginComponent implements OnInit {
         (response: any) => {
           if (response && response.jwtToken) {
             localStorage.setItem('jwtToken', response.jwtToken);
+            localStorage.setItem('userId', response.userId);
             this.snackbar.open('Login erfolgreich', 'Schließen', {
               duration: 2000,
             });

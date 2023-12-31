@@ -41,23 +41,28 @@ router.get("/getKategorien", async (req, res) => {
 
 router.get("/getKat", async (req, res) => {
   let collection = await db.collection("Fragen");
-  let kategorie = req.query.kat;
-  let results = await collection
-    .aggregate([
-      { $match: { kategorie: kategorie } },
-      {
-        $project: {
-          frage: 1,
-          antworten: 1,
-          korrekteAntwort: 1,
-          kategorie: 1,
-          _id: 1,
+  const bearerHeader = req.headers["authorization"];
+  if (bearerHeader) {
+    const bearer = bearerHeader.split(" ");
+    const user = bearer[1];
+    let kategorie = req.query.kat;
+    let results = await collection
+      .aggregate([
+        { $match: { kategorie: kategorie, user : user} },
+        {
+          $project: {
+            frage: 1,
+            antworten: 1,
+            korrekteAntwort: 1,
+            kategorie: 1,
+            _id: 1,
+          },
         },
-      },
-    ])
-    .toArray();
-  res.send(results).status(200);
-  console.log("Ausgewählte Kategorie gelesen: ");
+      ])
+      .toArray();
+    res.send(results).status(200);
+    console.log("Ausgewählte Kategorie gelesen: ");
+  }
 });
 
 router.get("/validate", async (req, res) => {
@@ -130,6 +135,7 @@ router.put("/update/:id", async (req, res) => {
       antworten: req.body.antworten,
       korrekteAntwort: req.body.korrekteAntwort,
       kategorie: req.body.kategorie,
+      user: req.body.user,
     },
   };
 
@@ -169,7 +175,7 @@ router.post("/login", async (req, res) => {
     const jwtToken = jwt.sign({ id: user._id }, JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.status(200).send({ jwtToken });
+    res.status(200).send({ jwtToken, userId: user._id });
     console.log("Login erfolgreich");
   } else {
     res.status(401).send({ error: "Ungültige Eingabedaten" });

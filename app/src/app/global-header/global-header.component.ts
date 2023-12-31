@@ -24,6 +24,7 @@ export class GlobalHeaderComponent {
 
   abmelden(){
     localStorage.removeItem('jwtToken');
+    localStorage.removeItem('userId');
     window.location.reload();
   }
 }

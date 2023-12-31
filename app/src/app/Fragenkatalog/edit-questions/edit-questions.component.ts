@@ -27,7 +27,12 @@ export class EditQuestionsComponent {
     this.formArray = this.formBuilder.array([]);
     let posts = async () => {
       let response = await fetch(
-        'http://localhost:5050/posts/getKat?kat=' + category
+        `http://localhost:5050/posts/getKat?kat=${category}`,
+        {
+          headers: {
+            'Authorization': `Bearer ${this.authService.getCurrentUser()}`
+          }
+        }
       );
       let results = await response.json();
       console.log(results);
@@ -87,6 +92,7 @@ export class EditQuestionsComponent {
     const item = form.value;
     if (this.eingabePruefen(item)) {
       let _id = this.message[index]._id;
+      item.user = this.authService.getCurrentUser()
       const response = await this.http
         .put(`http://localhost:5050/posts/update/${_id}`, item)
         .toPromise();
