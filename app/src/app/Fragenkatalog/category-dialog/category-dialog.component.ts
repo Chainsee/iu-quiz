@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-category-dialog',
@@ -14,7 +15,11 @@ export class CategoryDialogComponent {
   selectedCategory: any;
   async ngOnInit() {
     let posts = async () => {
-      let response = await fetch('http://localhost:5050/posts/getKategorien');
+      let response = await fetch(`http://localhost:5050/posts/getKategorien`, {
+        headers: {
+          Authorization: `Bearer ${this.authService.getCurrentUser()}`,
+        },
+      });
       let results = await response.json();
       return results;
     };
@@ -25,7 +30,8 @@ export class CategoryDialogComponent {
   constructor(
     private dialogRef: MatDialogRef<CategoryDialogComponent>,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
     ) {
       this.form = this.formBuilder.group({
         categoryName: '',

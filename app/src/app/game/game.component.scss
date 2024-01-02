@@ -148,11 +148,10 @@ $var: 100vw;
 
 mat-progress-bar {
   position: relative;
-  display: block;
+  top: calc($var/100);
+  width: calc($var/1.7);
+  height: calc($var/100);
   margin-left: auto;
   margin-right: auto;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  width: 45%;
+  border-radius: 30px;
 }

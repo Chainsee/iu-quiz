@@ -4,6 +4,9 @@
     <span class="kategorie_text">{{ message[i].kategorie }}</span>
   </div>
   <div class="frage">{{ message[i].frage }}</div>
+  <!-- <div class="progressbar"> -->
+    <mat-progress-bar class="progressbar" mode="determinate" [value]="progress"></mat-progress-bar>
+  <!-- </div> -->
   <div class="panelCheckMark">
     <div *ngFor="let item of message; let i = index">
       <div
@@ -13,9 +16,12 @@
           blank: !questionAnswered[i]
         }"
       >
-        <span class="check" *ngIf="isRightAnswer[i] && questionAnswered[i]">&#10004;</span
-        ><span class="cross" *ngIf="getWrongAnswer(i) && questionAnswered[i]">x</span>
-        <span class = "blank" *ngIf="!questionAnswered[i]"></span>
+        <span class="check" *ngIf="isRightAnswer[i] && questionAnswered[i]"
+          >&#10004;</span
+        ><span class="cross" *ngIf="getWrongAnswer(i) && questionAnswered[i]"
+          >x</span
+        >
+        <span class="blank" *ngIf="!questionAnswered[i]"></span>
       </div>
     </div>
   </div>

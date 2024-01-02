@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-category',
@@ -9,10 +10,14 @@ import { Router } from '@angular/router';
 export class CategoryComponent {
   categories: any;
   selectedCategory: any;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
   async ngOnInit() {
     let posts = async () => {
-      let response = await fetch('http://localhost:5050/posts/getKategorien');
+      let response = await fetch(`http://localhost:5050/posts/getKategorien`, {
+        headers: {
+          Authorization: `Bearer ${this.authService.getCurrentUser()}`,
+        },
+      });
       let results = await response.json();
       return results;
     };

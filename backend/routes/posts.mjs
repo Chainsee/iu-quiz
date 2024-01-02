@@ -34,9 +34,22 @@ router.get("/getAll", async (req, res) => {
 
 router.get("/getKategorien", async (req, res) => {
   let collection = await db.collection("Fragen");
-  let results = await collection.distinct("kategorie");
-  res.send(results).status(200);
-  console.log("Kategorien gelesen: ");
+  const bearerHeader = req.headers["authorization"];
+  if (bearerHeader) {
+    const bearer = bearerHeader.split(" ");
+    const user = bearer[1];
+    let results = await collection
+      .aggregate([
+        { $match: { user: user } },
+        { $group: { _id: "$kategorie" } },
+      ])
+      .toArray();
+      console.log(results);
+    res.send(results).status(200);
+    console.log("Kategorien gelesen: ");
+  } else {
+    res.status(403).send({ error: "Fehler bei der Kategorienermittlung" });
+  }
 });
 
 router.get("/getKat", async (req, res) => {
@@ -48,7 +61,7 @@ router.get("/getKat", async (req, res) => {
     let kategorie = req.query.kat;
     let results = await collection
       .aggregate([
-        { $match: { kategorie: kategorie, user : user} },
+        { $match: { kategorie: kategorie, user: user } },
         {
           $project: {
             frage: 1,

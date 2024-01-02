@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DialogComponent } from './dialog/dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
+import { clear } from 'console';
 
 @Component({
   selector: 'app-game',
@@ -14,13 +15,11 @@ export class GameComponent {
   i: number = 0;
   message: any;
   score: any;
-
-  duration: number = 2 * 100;
-  step = 100;
-  add_step = 10;
+  duration: number = 1000;
+  step = 4;
   progress = 0;
-
   ergebnis = new ergebnis();
+  interval: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +40,7 @@ export class GameComponent {
         }
       );
       let results = await response.json();
+      this.countdown();
       return results;
     };
 
@@ -59,11 +59,14 @@ export class GameComponent {
     }
     this.isRightAnswer.push(richtig);
     this.questionAnswered.push(true);
+    this.countdown();
     //Prüfung, ob noch Fragen unbeantwortet sind
     if (!this.end()) {
       this.i++;
     } else {
       this.postScore();
+      this.step = 0;
+      clearInterval(this.interval);
       this.showScore(this.calculatePercentage());
     }
   }
@@ -93,7 +96,7 @@ export class GameComponent {
     this.ergebnis.score = this.calculatePercentage();
     this.ergebnis.user = this.authService.getCurrentUser();
     this.ergebnis.kategorie = this.route.snapshot.paramMap.get('category');
-    //Timezone?
+    //TODO: Fix Timezone 1h verschoben
     this.ergebnis.date = new Date();
     const response = await this.http
       .post('http://localhost:5050/posts/newScore', this.ergebnis, {
@@ -106,6 +109,17 @@ export class GameComponent {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: { score: score },
     });
+  }
+
+  countdown() {
+    this.progress = 0;
+    this.interval = setInterval(() => {
+      this.progress += this.step;
+      if (this.progress >= 100) {
+        this.checkAnswer(5);
+        clearInterval(this.interval);
+      }
+    }, this.duration);
   }
 }
 
