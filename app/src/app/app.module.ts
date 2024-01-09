@@ -23,6 +23,11 @@ import {MatMenuModule} from '@angular/material/menu';
 import { LoginComponent } from './start/login/login.component';
 import { RegisterComponent } from './start/register/register.component';
 import { GlobalHeaderComponent } from './global-header/global-header.component';
+import { ScoreComponent } from './home/score/score.component';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+
+registerLocaleData(localeDe, 'de');
 
 @NgModule({
   imports: [
@@ -53,7 +58,8 @@ import { GlobalHeaderComponent } from './global-header/global-header.component';
     CategoryDialogComponent,
     LoginComponent,
     RegisterComponent,
-    GlobalHeaderComponent
+    GlobalHeaderComponent,
+    ScoreComponent
   ],
   bootstrap: [AppComponent],
 })

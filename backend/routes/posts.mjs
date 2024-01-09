@@ -1,7 +1,6 @@
 import express from "express";
 import db from "../db/conn.mjs";
 import { ObjectId } from "mongodb";
-import { randomBytes } from "crypto";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
@@ -44,7 +43,7 @@ router.get("/getKategorien", async (req, res) => {
         { $group: { _id: "$kategorie" } },
       ])
       .toArray();
-      console.log(results);
+    console.log(results);
     res.send(results).status(200);
     console.log("Kategorien gelesen: ");
   } else {
@@ -99,6 +98,27 @@ router.get("/validate", async (req, res) => {
   }
 });
 
+router.get("/getUserScore", async (req, res) => {
+  let collection = await db.collection("UserScore");
+  const bearerHeader = req.headers["authorization"];
+  if (bearerHeader) {
+    const bearer = bearerHeader.split(" ");
+    const user = bearer[1];
+    let results = await collection
+      .aggregate([
+        { $match: { user: user } },
+        { $addFields: { score: { $round: ["$score", 2] } } },
+        { $sort: { date: -1 } },
+        { $limit: 10}
+      ])
+      .toArray();
+    res.send(results).status(200);
+    console.log("UserScore gelesen");
+  } else {
+    res.status(403).send({ error: "Fehler bei der Ermittlung des UserScore" });
+  }
+});
+
 router.get("/:id", async (req, res) => {
   let collection = await db.collection("Fragen");
   let query = { _id: ObjectId(req.params.id) };
@@ -119,11 +139,8 @@ router.post("/newQuestion", async (req, res) => {
 });
 
 router.post("/newScore", async (req, res) => {
-  console.log("Score hinzugefügt");
   let collection = await db.collection("UserScore");
-  console.log("Score hinzugefügt");
   let newDocument = req.body;
-  console.log("Score hinzugefügt");
   let result = await collection.insertOne(newDocument);
   console.log("Score hinzugefügt");
   res.send(result).status(204);

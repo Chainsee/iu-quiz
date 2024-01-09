@@ -10,6 +10,7 @@ import { QuestionsComponent } from './fragenkatalog/questions.component' ;
 import { CategoryComponent } from './game/category/category.component';
 import { EditQuestionsComponent } from './fragenkatalog/edit-questions/edit-questions.component';
 import { AuthGuard } from './../services/authGuard.service';
+import { ScoreComponent } from './home/score/score.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'game/:category', component: GameComponent, canActivate: [AuthGuard]},
   {path: 'fragenkatalog', component: QuestionsComponent, canActivate: [AuthGuard]},
   {path: 'fragenbearbeiten/:category', component: EditQuestionsComponent, canActivate: [AuthGuard]},
-  {path: 'auswahl', component: CategoryComponent, canActivate: [AuthGuard]}
+  {path: 'auswahl', component: CategoryComponent, canActivate: [AuthGuard]},
+  {path: 'score', component: ScoreComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

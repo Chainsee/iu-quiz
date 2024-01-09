@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { DialogComponent } from './dialog/dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
-import { clear } from 'console';
 
 @Component({
   selector: 'app-game',

@@ -10,8 +10,8 @@ export class GlobalHeaderComponent {
   constructor(private router: Router) {}
 
   jwtToken = localStorage.getItem('jwtToken');
-  showProfile() {
-    console.log('showProfile');
+  showScore() {
+    this.router.navigate(['/score']);
   }
 
   showFriends() {
