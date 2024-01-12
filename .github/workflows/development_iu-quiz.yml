@@ -27,7 +27,7 @@ jobs:
           npm install
           echo "Current working directory: $(pwd)"
           ls -R
-          node ../backend/index.mjs
+          node ../iu-quiz/backend/index.mjs
       
 
       - name: Upload artifact for deployment job
