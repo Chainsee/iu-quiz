@@ -22,7 +22,7 @@ jobs:
           node-version: '18.x'
 
 
-      - name: npm install, node index.mjs
+      - name: npm install
         run: |
           npm install
           echo "Current working directory: $(pwd)"
@@ -33,7 +33,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: backend
 
   deploy:
     runs-on: ubuntu-latest
