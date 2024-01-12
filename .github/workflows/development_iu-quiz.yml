@@ -24,6 +24,8 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
+          echo "Current working directory: $(pwd)"
+          ls -R
           node ../backend/index.mjs
       
       - name: Upload artifact for deployment job
