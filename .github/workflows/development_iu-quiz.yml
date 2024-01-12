@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - IU-Quiz
 on:
   push:
     branches:
-      - development
+      - master
   workflow_dispatch:
 
 jobs:
@@ -15,8 +15,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: development
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
