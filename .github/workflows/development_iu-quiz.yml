@@ -20,19 +20,32 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-
-
-      - name: npm install
+          
+      - name: Build Backend
         run: |
+          cd backend
           npm install
-          echo "Current working directory: $(pwd)"
-          ls -R
-      
+          npm run build --if-present
+        id: backend
 
-      - name: Upload artifact for deployment job
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build --if-present
+        id: frontend
+
+      - name: Upload Backend artifact
         uses: actions/upload-artifact@v3
         with:
-          name: node-app
+          name: backend-app
+          path: ./backend
+
+      - name: Upload Frontend artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-app
+          path: ./frontend
 
   deploy:
     runs-on: ubuntu-latest
@@ -42,12 +55,17 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
+      - name: Download Backend artifact
         uses: actions/download-artifact@v3
         with:
-          name: node-app
+          name: backend-app
 
-      - name: 'Deploy to Azure Web App'
+      - name: Download Frontend artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: frontend-app
+
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
