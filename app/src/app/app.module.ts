@@ -26,6 +26,7 @@ import { GlobalHeaderComponent } from './global-header/global-header.component';
 import { ScoreComponent } from './home/score/score.component';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
+import { MultiplayerCategoryComponent } from './game/category-mp/category-mp.component';
 
 registerLocaleData(localeDe, 'de');
 
@@ -59,7 +60,8 @@ registerLocaleData(localeDe, 'de');
     LoginComponent,
     RegisterComponent,
     GlobalHeaderComponent,
-    ScoreComponent
+    ScoreComponent,
+    MultiplayerCategoryComponent
   ],
   bootstrap: [AppComponent],
 })
