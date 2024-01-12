@@ -15,13 +15,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: development
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: npm install, node index.mjs
         run: |
           npm install
           echo "Current working directory: $(pwd)"
