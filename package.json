@@ -6,7 +6,7 @@
     "install": "concurrently \"npm run install-server\" \"npm run install-app\"",
     "install-server": "cd backend && npm install",
     "install-app": "cd app && npm install",
-    "build": "cd app && ng build"
+    "build": "cd app && npm run build"
   },
   "private": true,
   "dependencies": {
