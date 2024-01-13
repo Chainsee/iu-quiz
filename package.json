@@ -4,7 +4,7 @@
     "start-server": "cd backend && node index.mjs",
     "start-app": "cd app && ng serve",
     "install": "concurrently \"npm run install-server\" \"npm run install-app\"",
-    "install-server": "cd backend && npm install",
+    "install-server": "npm install && cd backend && npm install",
     "install-app": "cd app && npm install",
     "build": "cd app && ng build"
   },
