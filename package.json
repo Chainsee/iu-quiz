@@ -5,7 +5,8 @@
     "start-app": "cd app && ng serve",
     "install": "concurrently \"npm run install-server\" \"npm run install-app\"",
     "install-server": "cd backend && npm install",
-    "install-app": "cd app && npm install"
+    "install-app": "cd app && npm install",
+    "build": "cd app && npm run build"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +23,6 @@
     "@angular/platform-server": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.3",
-    "@auth0/auth0-angular": "^2.2.1",
     "@types/papaparse": "^5.3.14",
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.2",
