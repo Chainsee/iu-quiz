@@ -60,19 +60,19 @@ jobs:
         with:
           name: backend-app
 
-      - name: Download Frontend artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: frontend-app
-
       - name: Deploy to Azure Web App Backend
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp-backend
         with:
           app-name: 'IU-Quiz'
           slot-name: 'Production'
-          package: .
+          package: ./backend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9C1D2C94EB79480E98E60172101B311B }}
+
+      - name: Download Frontend artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: frontend-app
 
       - name: Deploy to Azure Web App Frontend
         id: deploy-to-webapp-frontend
@@ -80,5 +80,6 @@ jobs:
         with:
           app-name: 'IU-Quiz-Frontend'
           slot-name: 'production'
-          package: .
+          package: ./app
           publish-profile: ${{ secrets.PUBLISH_FRONTEND }}
+
