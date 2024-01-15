@@ -39,13 +39,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: backend-app
-          path: ./backend
+          path: backend/dist
 
       - name: Upload Frontend artifact
         uses: actions/upload-artifact@v3
         with:
           name: frontend-app
-          path: ./app
+          path: app/dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -66,7 +66,7 @@ jobs:
         with:
           app-name: 'IU-Quiz'
           slot-name: 'Production'
-          package: ./backend
+          package: ./backend/dist
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9C1D2C94EB79480E98E60172101B311B }}
 
       - name: Download Frontend artifact
@@ -80,6 +80,6 @@ jobs:
         with:
           app-name: 'IU-Quiz-Frontend'
           slot-name: 'production'
-          package: ./app
+          package: ./app/dist
           publish-profile: ${{ secrets.PUBLISH_FRONTEND }}
 
