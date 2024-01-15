@@ -66,7 +66,7 @@ jobs:
         with:
           app-name: 'IU-Quiz'
           slot-name: 'Production'
-          package: .
+          package: ./backend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9C1D2C94EB79480E98E60172101B311B }}
 
       - name: Download Frontend artifact
@@ -80,6 +80,6 @@ jobs:
         with:
           app-name: 'IU-Quiz-Frontend'
           slot-name: 'production'
-          package: .
+          package: ./app
           publish-profile: ${{ secrets.PUBLISH_FRONTEND }}
 
