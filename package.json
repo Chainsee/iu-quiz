@@ -3,7 +3,7 @@
     "start": "concurrently \"npm run start-server\" \"npm run start-app\"",
     "start-server": "cd backend && node index.mjs",
     "start-app": "cd app && ng serve",
-    "install": "concurrently \"npm run install-server\" \"npm run install-app\"",
+    "install-all": "concurrently \"npm run install-server\" \"npm run install-app\"",
     "install-server": "cd backend && npm install",
     "install-app": "cd app && npm install",
     "build": "cd app && npm run build"
