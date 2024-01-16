@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "install": "npm run install --force",
+    "install": "npm install --force",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
